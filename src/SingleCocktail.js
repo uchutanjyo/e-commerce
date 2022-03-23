@@ -20,8 +20,33 @@ async function getCocktail() {
     const response = await fetch(`${url}${id}`)
     const data = await response.json();
     if (data.drinks) {
-     const { strDrink: name } = data.drinks[0]
-     const newCocktail = {name}
+      console.log(data.drinks)
+     const { strDrink: name, 
+      strDrinkThumb,
+      strIngredient1,
+      strIngredient2,
+      strIngredient3,
+      strIngredient4,
+      strIngredient5,
+      strIngredient6,
+      strIngredient7,
+      strIngredient8,
+      strIngredient9,
+      strIngredient10} = data.drinks[0]
+      const ingredients = [ strIngredient1,
+      strIngredient2,
+      strIngredient3,
+      strIngredient4,
+      strIngredient5,
+      strIngredient6,
+      strIngredient7,
+      strIngredient8,
+      strIngredient9,
+      strIngredient10]
+     const newCocktail = {
+       name,
+      strDrinkThumb,
+      ingredients}
      setCocktail(newCocktail)
     }
     else {
@@ -40,7 +65,11 @@ console.log(error)
 }, [id])
 if (loading) {
     return (
+            <Main>
+
 <Loading/>
+      </Main>
+
     )
 } if (!cocktail) {
   return (
@@ -51,11 +80,16 @@ if (loading) {
     </div>
   )
 } else {
-  const {name} = cocktail;
+  const {name, strDrinkThumb, ingredients} = cocktail;
   return (
     <div>
       <Main>
-      <h2>{name} </h2>
+      <h2>{name}</h2>
+  <img className='img' src={strDrinkThumb} alt="" /> 
+  <div>ingredients:
+{ingredients.map((ingredient,index) => {
+    return <section key={index}>{ingredient ? ingredient : null}</section>
+})}    </div>
       </Main>
     </div>
   )

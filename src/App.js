@@ -30,6 +30,7 @@ return (
 <Route  path="about/" element={<About />}>
 </Route>
 <Route  path="/cocktail/:id/" element={<SingleCocktail />}>
+    {/* sets up a route to what will become the 'single cocktail' page which will change based on whcih cocktail is clicked (which id) */}
 </Route>
 <Route  path="*" element={<Error/>}>
 </Route>

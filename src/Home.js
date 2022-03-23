@@ -1,7 +1,5 @@
 import React from 'react';
 import Main from './components/Main'
-import Post from './components/Post'
-import Paragraph from './components/Paragraph'
 import CocktailList from './components/CocktailList';
 import SearchForm from './components/SearchForm';
 

@@ -127,18 +127,11 @@ font-size: 15px;
     
 }
 
-.Portraits {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-    position: relative;
-}
-
 
 .img {
  
-   height: 200px;
+   height: 300px;
+   width: 300px;
     border: 1px solid rgba(238, 19, 19, 0.51);
     border-radius: 75%;
 }

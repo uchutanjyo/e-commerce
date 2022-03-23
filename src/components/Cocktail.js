@@ -10,6 +10,7 @@ const Cocktail = ({id, image, info, glass, name }) => {
      <div>{glass}</div>
      <Link to ={`/cocktail/${id}`} className='btn'>detals</Link>
     </div>
+    // returns component with the above props whcih will be taken from CocktailList after importing
   )
 }
 
