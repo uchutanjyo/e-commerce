@@ -1,20 +1,24 @@
 import React from 'react';
 import Main from './components/Main'
-import CocktailList from './components/CocktailList';
-import SearchForm from './components/SearchForm';
+import TopHeader from './components/TopHeader';
+import FeaturedProducts from './components/FeaturedProducts';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 
 const Home = () => {
   return (
     <>
- <Main>
-      Cocktails
-
-<SearchForm></SearchForm>
-
-      <CocktailList></CocktailList>
-         </Main>
-
+  <div className='main-top'>
+    <TopHeader></TopHeader>
+ </div>
+   <div className='main-center'>
+   <FeaturedProducts></FeaturedProducts>
+</div>
+<div className='main-bottom'>
+   <Contact></Contact>
+</div>
+<Footer></Footer>
 
     </>
   );
