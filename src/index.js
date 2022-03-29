@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/App.css';
 import App from './App';
-import {AppProvider} from './components/context'
+import {AppProvider} from './context/ProductsContext'
 
 
 

@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom';
 import './styles/App.css';
 import Error from './Error'
 
+
 // react router
 import { Link, BrowserRouter, Route, Routes } from 'react-router-dom';
 // pages
 import Home from './Home';
 import About from './About';
 import Cart from './Cart'
+import Products from './Products';
+
+const url = 'https://fakestoreapi.com/products';
 
 
 const App = () => {
@@ -19,7 +23,7 @@ return (
         <nav className='Nav'>
                     <Link to="/" className='Navbar-link'>Home</Link>
                      <Link to="/About" className='Navbar-link'>About</Link>
-                     
+                     <Link to="/Products" className='Navbar-link'>Products</Link>
         <section className='cart-icons'>
                     <Link to="/Cart" className='Navbar-link'>Cart</Link>
 
@@ -34,8 +38,10 @@ return (
 </Route>
 <Route  path="cart/" element={<Cart />}>
 </Route>
-<Route  path="*" element={<Error/>}>
+<Route  path="products/" element={<Products />}>
 </Route>
+
+
 </Routes>
 </BrowserRouter>
 </>

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@1,300&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@1,300&family=Roboto+Condensed:wght@0,300;0,400;0,700;1,300;1,400&display=swap');
 
 
 @mixin flexCenter($direction) {
@@ -14,7 +14,8 @@ body {
     background-color: whitesmoke;
     font-family: 'Roboto Condensed',
         sans-serif;
-    @include flexCenter(column);
+@include flexCenter(column);
+
 }
 
 // buttons
@@ -71,10 +72,18 @@ p {
  font-size: 1.5em;
 }
 
-/* Header of each page */
+// page banner
 
-.header {
-    text-align: center;
+.top-banner {
+@include flexCenter(row);    
+    height: 5em;
+    background-color: rgb(157, 184, 233);
+    margin-top:  5%
+}
+
+.sub-banner {
+        text-align: center;
+
 }
 
 /* Home page components */
@@ -110,6 +119,8 @@ div {
       text-align: center;
       max-width: 70vw 
 }
+
+
 
 
 /* Main - wrappers */
@@ -151,25 +162,6 @@ div {
 
 
 
-.post {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    margin-bottom: 4em;
-    font-size: 23px;
-
-}
-
-.Post-date {
-    color: rgb(194, 77, 77)
-}
-
-
-.News {
-    width: 20em;
-    border: 1px solid;
-}
-
 .paragraph {
     color: rgb(85, 85, 87);
     text-align: left;
@@ -179,12 +171,83 @@ div {
 
 
 
-/* About */
+/* About page */
 
 .about {
+    margin-top: 10%;
+    width: 70vw;
+}
+/* Products page */
 
-    margin-top: 20%;
-    max-width: 50vw
+.products-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  
+    div {
+        margin-left: 2em;
+    }
+
+}
+.products {
+    @include flexCenter(row);
+    width: 75vw;
+    height: 70vh;
+         font-family: 'Chakra Petch',
+         sans-serif;
+}
+
+.products-container {
+        width: 80%;
+      
+        max-height: 90%;
+        overflow: auto;
+          display: grid;
+           grid-template-columns: 33% 33% 33%;
+           padding: 10px;
+}
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+
+
+.product {
+max-width: 90%;
+max-height: 100%;
+
+padding: 1em;
+
+margin: 1em;
+border-radius: 5%;
+color:rgb(39, 3, 105);
+   font-style: normal;
+}
+
+.description {
+
+display: flex;
+flex-direction: column;
+max-height: 10em;
+overflow:hidden
+}
+
+.categories-sidebar {
+    width: 20%;
+   
+    height: 80%;
+    h2 {
+    text-align: center;
+    text-decoration: underline;
+    }
+    li {
+color: rgb(39, 12, 88);
+list-style-type:none;
+        
+    }
 }
 
 
