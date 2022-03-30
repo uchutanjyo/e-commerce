@@ -10,14 +10,9 @@ const SearchForm = () => {
 
     const searchProduct = () => {
 
-        // setSearchTerm(searchValue.current.value)
+        setSearchTerm(searchValue.current.value.toLowerCase())
  
-        //     if (searchTerm != '') {
-        // setProducts(filtered)
-            
-        // console.log(products) }
-        // else {setProducts(products)}
-        // // function which sets the searchTerm state as the current value of whatever the reference will be (coming up below)
+        
     }
 
       React.useEffect(() => {

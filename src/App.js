@@ -12,7 +12,8 @@ import About from './About';
 import Cart from './Cart'
 import Products from './Products';
 
-const url = 'https://fakestoreapi.com/products';
+// const url = 'https://fakestoreapi.com/products';
+
 
 
 const App = () => {

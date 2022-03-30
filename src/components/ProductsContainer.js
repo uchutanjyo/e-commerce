@@ -21,7 +21,7 @@ return (
   <div className='products-title'>
      <SearchForm></SearchForm>
     <h2>
-     {products.length} products found!</h2></div> 
+     {filtered.length} products found!</h2></div> 
     
  <div className='products'>
    <div className="categories-sidebar"><h2>Categories</h2>
@@ -45,20 +45,12 @@ return (
        return (
        <>
        <div key={id} className='product'>
-         <h2>  {`${title.substring(0, 70)}...`}</h2>
+         <h2>  {`${title.substring(0, 70)}...`.toUpperCase()}</h2>
           <h3> ${price}</h3>
-          
           <section className='description'><img src={image} alt="" />
          </section></div>
           </>
        ) 
-//  }  else {
-
-//     setProducts([])
-//    return <div>sdsdfasdaf</div>
-   
-//  }
-
   }
 
   )}
