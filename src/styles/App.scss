@@ -178,6 +178,22 @@ div {
     width: 70vw;
 }
 /* Products page */
+.modal {
+    min-width: 70vw;
+    min-height: 70h;
+    background: rgb(216, 198, 198);
+    z-index: 10;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    margin: 5em;
+}
 
 .products-title {
   display: flex;

@@ -11,12 +11,15 @@ import Home from './Home';
 import About from './About';
 import Cart from './Cart'
 import Products from './Products';
+import SingleProductPage from './SingleProductPage'
 
 // const url = 'https://fakestoreapi.com/products';
 
 
 
 const App = () => {
+console.log('p')
+
 return (
     <>
         <BrowserRouter>
@@ -39,6 +42,9 @@ return (
 </Route>
 <Route  path="cart/" element={<Cart />}>
 </Route>
+<Route  path="singleproductpage/" element={<SingleProductPage />}>
+</Route>
+
 <Route  path="products/" element={<Products />}>
 </Route>
 

@@ -5,7 +5,7 @@ import SearchForm from './SearchForm';
 
 
 const ProductsContainer = ({children}) => {
-const {products, setProducts, searchTerm, loading,getProducts, filtered} = useGlobalContext()
+const {products, setProducts, searchTerm, loading,getProducts, filtered, setShow, handleClick} = useGlobalContext()
 
 
 
@@ -45,7 +45,7 @@ return (
        return (
        <>
        <div key={id} className='product'>
-         <h2>  {`${title.substring(0, 70)}...`.toUpperCase()}</h2>
+         <h2> <button id={id} onClick={handleClick}>{`${title.substring(0, 70)}...`.toUpperCase()}</button></h2>
           <h3> ${price}</h3>
           <section className='description'><img src={image} alt="" />
          </section></div>

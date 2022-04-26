@@ -1,37 +1,37 @@
   
-  import axios from 'axios'
-import React, {useState, useCallback, useContext, useEffect} from 'react'
-import reducer from './reducer'
+//   import axios from 'axios'
+// import React, {useState, useCallback, useContext, useEffect} from 'react'
+// import reducer from './reducer'
 
-const url ='https://fakestoreapi.com/products/category/electronics';
-// api where data will be fetched from
+// const url ='https://fakestoreapi.com/products/category/electronics';
+// // api where data will be fetched from
 
-const AppContext = React.createContext();
+// const AppContext = React.createContext();
 
-const AppProvider = ({children}) => {
+// const AppProvider = ({children}) => {
 
       
-  const [state, dispatch] = useReducer(reducer, initialState)
+//   const [state, dispatch] = useReducer(reducer, initialState)
 
 
-    dispatch({type: 'CLEAR_CART'})
+//     dispatch({type: 'CLEAR_CART'})
       
 
         
 
-    return<>
-    <AppContext.Provider value={{
+//     return<>
+//     <AppContext.Provider value={{
    
-    }}> {children}
-    </AppContext.Provider>
-    </>
-}
+//     }}> {children}
+//     </AppContext.Provider>
+//     </>
+// }
 
-export const useGlobalContext = () => {
-return useContext(AppContext)
-}
+// export const useGlobalContext = () => {
+// return useContext(AppContext)
+// }
 
-export {AppContext, AppProvider}
+// export {AppContext, AppProvider}
   
   
 
