@@ -39,7 +39,7 @@ return (
 
  
 {filtered.map((product) => {
-    const {id, title, description, image, price} =product;
+    const {id, title, description, imageUrl, price} =product;
    
   
        return (
@@ -47,7 +47,7 @@ return (
        <div key={id} className='product'>
          <h2> <button id={id} onClick={handleClick}>{`${title.substring(0, 70)}...`.toUpperCase()}</button></h2>
           <h3> ${price}</h3>
-          <section className='description'><img src={image} alt="" />
+          <section className='description'><img src={imageUrl} alt="" />
          </section></div>
           </>
        ) 

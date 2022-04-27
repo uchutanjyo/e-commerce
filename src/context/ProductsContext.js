@@ -2,8 +2,7 @@ import axios from 'axios'
 import React, {useState, useCallback, useContext, useEffect} from 'react'
 import reducer from './reducer'
 
-const url ='https://fakestoreapi.com/products/category/electronics';
-// api where data will be fetched from
+
 
 const AppContext = React.createContext();
 
@@ -16,13 +15,14 @@ const AppProvider = ({children}) => {
         const [products, setProducts] = useState([])
         const [show, setShow] = useState(false);
     
-        
+          const url =
+    'http://localhost:8000/products'
   
         const getProducts =async () => {
         isLoading(true)
         try {
         const data = await axios.get(url);
-        const newProducts = data.data;
+        const newProducts = data.data
         setProducts(newProducts)
         isLoading(false)
         }  catch(error) {
