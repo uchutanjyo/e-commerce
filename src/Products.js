@@ -8,9 +8,6 @@ const Products = ({product}) => {
     const [productId, setProductId] = useState('')
 const {show, setShow, products} = useGlobalContext()
 
-
-
-
   return (
 
 <>

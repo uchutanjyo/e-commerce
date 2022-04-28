@@ -16,11 +16,12 @@ const AppProvider = ({children}) => {
         const [show, setShow] = useState(false);
     
           const url =
-    'http://localhost:8000/products'
+    'http://localhost:8001/products'
   
         const getProducts =async () => {
         isLoading(true)
         try {
+                 console.log('NPg')
         const data = await axios.get(url);
         const newProducts = data.data
         setProducts(newProducts)
