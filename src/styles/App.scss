@@ -22,30 +22,43 @@ body {
 .default-button {
     font-family: 'Chakra Petch',sans-serif;
     border-radius: 5%;
-    background-color: blanchedalmond;
-    padding: 5px;
+    color: rgb(6, 6, 6);
+    padding: 1.1em;
     margin-top: 5em;
+    cursor: pointer;
 }
 
 .Nav {
-    background-color: rgb(75, 80, 151);
+    background-color: rgb(8, 10, 40);
     width: 100vw;
     height: 2em;
     text-align: center;
     left: 0;
     position: fixed;
     top: 0;
-    z-index: 20;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 1em;
+    padding-bottom: 1em;
     z-index: 1
-  
+        // background-color: rgb(75, 80, 151);
 }
+
+
 
 .Nav a {
     text-decoration: none;
     color: rgb(255, 255, 255);
     font-size: 1.7em;
+}
+
+.nav-title {
+    float: left;
+    top: 0;
+    margin-left: 2em;
+    color: rgb(255, 255, 255);
+    font-size: 1.7em;
+    cursor:default
+   
+
 }
 
 .Navbar-link {
@@ -98,60 +111,68 @@ p {
        width: 90%
     }
 }
+
+
 .left {
+    @include flexCenter(column);
     width: 50%;
     height: 40vh;
-    // background-color: rgb(212, 184, 184);
     padding: 1em;
-    margin-left: 1em 
-   
+    margin-left: 1em;
+    h1 {
+    color:rgb(253, 247, 247);
+
+    }
 }
+
+.home-header {
+    // padding-left: 4em;
+    // padding-right: 4em;
+    max-width: 40%;
+    font-size: 1.4em;
+color:rgb(243, 230, 230);
+}
+
 .right {
     width: 50%;
     height: 70vh;
 }
    
-//     img {
-//         max-height: 100%;
-//         max-width: 100%;
-//         border-radius: 5%;
-
-//     }
-// }
 
 .featured-products {
       @include flexCenter(row);
       text-align: center;
-      max-width: 70vw 
+      max-width: 80vw;
+      height: 100%;
 }
 
-
-
-
 /* Main - wrappers */
-
 .main-top {
     z-index: 1;
   @include flexCenter(row);
 }
 
 .main-center {
-    background-color: rgb(212, 199, 199);
-    margin-top: 2%;
-
-    min-width: 100vw;
-    height: 80vh;
-    z-index: 1;
-    @include flexCenter(row);
-}
-
-.main-bottom {
-    background-color: rgb(243, 230, 230);
-
+    background-color: rgb(252, 247, 247);
     min-width: 100vw;
     height: 100vh;
     z-index: 1;
     @include flexCenter(row);
+    img {
+        max-height: 90%;
+    }
+}
+
+.main-bottom {
+background-color:rgba(45, 81, 100, 0.8);
+color:rgb(243, 230, 230);
+    min-width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    @include flexCenter(row);
+    h1  {
+        color: whitesmoke
+    }
 }
 
 .footer {
@@ -160,9 +181,9 @@ p {
     width: 100vw;
     position: absolute;
     color: whitesmoke;
-    height: 4em;
+    height: 2em;
     @include flexCenter(row);
-    font-size: 2em;
+    font-size: 1.2em;
 }
 
 
@@ -201,52 +222,59 @@ p {
 }
 
 .products-title {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: left;
-  
-    div {
+ @include flexCenter(row);
+  margin-top: 5em;
+  position: relative;
+    h5 {
         margin-left: 2em;
+        font-size: 1.5em;
     }
+}
+
+.search-form {
+margin-right: 1em;
+height: 2.5em;
 
 }
+
 .products {
     @include flexCenter(row);
     width: 75vw;
-    height: 70vh;
+    height: 100%;
+    margin-bottom: 1em;
          font-family: 'Chakra Petch',
          sans-serif;
 }
 
 .products-container {
-        width: 80%;
-      
+        width: 90%;
         max-height: 90%;
-        overflow: auto;
           display: grid;
-           grid-template-columns: 33% 33% 33%;
-           padding: 10px;
-
+           grid-template-columns: 25% 25% 25% 25%;
+           margin-top: 7em;
 }
-            img {
-                max-width: 100%;
-                max-height: 100%;
-            }
-
 
 .product {
-max-width: 90%;
-max-height: 100%;
+@include flexCenter(column);
+text-align: center;
+max-width: 100%;
+min-height: 350px;
+padding: .2em;
+margin: .1em;
+border-radius: 1%;
+color:rgb(243, 230, 230);
+font-style: normal;
+background-color:rgba(45, 81, 100, 0.8);
 
-padding: 1em;
-
-margin: 1em;
-border-radius: 5%;
-color:rgb(39, 3, 105);
-   font-style: normal;
-              background-color: rgb(38, 25, 61);
-
+      img {
+                max-width: 90%;
+                max-height: 90%;
+                margin-bottom: .5em;
+                
+      }
+      h4 {
+         margin-bottom: -.5em;
+      }
 }
 
 .description {
@@ -258,9 +286,15 @@ overflow:hidden
 }
 
 .categories-sidebar {
-    width: 20%;
-   
+    @include flexCenter(column);
+
+    width: 10%;
     height: 80%;
+    position: fixed;
+    left: 0;
+    top: 0;
+
+  
     h2 {
     text-align: center;
     text-decoration: underline;

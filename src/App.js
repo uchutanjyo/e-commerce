@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/App.css';
 import Error from './Error'
-
+import Footer from './components/Footer';
 
 // react router
 import { Link, BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -13,18 +13,14 @@ import Cart from './Cart'
 import Products from './Products';
 import SingleProductPage from './SingleProductPage'
 
-// const url = 'https://fakestoreapi.com/products';
-
-
-
 const App = () => {
-console.log('p')
 
 return (
     <>
         <BrowserRouter>
 
         <nav className='Nav'>
+        <Link to="" className='nav-title'>The Indispensible.</Link>
                     <Link to="/" className='Navbar-link'>Home</Link>
                      <Link to="/About" className='Navbar-link'>About</Link>
                      <Link to="/Products" className='Navbar-link'>Products</Link>
@@ -50,6 +46,7 @@ return (
 
 
 </Routes>
+
 </BrowserRouter>
 </>
 )

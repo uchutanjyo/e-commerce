@@ -20,8 +20,7 @@ const SearchForm = () => {
   }, [])
 
   return (
-    <div className='SearchForm'>
-
+    <div className='search-form'>
  <form action="input">
    <input type="text" placeholder="search" id="name" ref={searchValue} onChange={searchProduct}/>
  </form>

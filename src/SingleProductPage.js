@@ -2,7 +2,7 @@
 import React, {useState, useEffect} from 'react';
 import ProductsContainer from './components/ProductsContainer';
 import { useGlobalContext } from './context/ProductsContext';
-import SingleProduct from './components/SingleProduct';
+import Product from './components/Product';
 
 
 const Products = () => {
@@ -19,7 +19,7 @@ const { products, product} = useGlobalContext()
              <div className='top-banner'>
         <h1>PRODUCTS
      </h1>
-     <SingleProduct 
+     <Product 
      
      product={product}>
 {products.map((product) => {
@@ -39,7 +39,7 @@ return (
 )}
 })}
        
-     </SingleProduct>
+     </Product>
      </div>
 
 

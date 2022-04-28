@@ -21,22 +21,22 @@ body {
 .default-button {
   font-family: 'Chakra Petch',sans-serif;
   border-radius: 5%;
-  background-color: blanchedalmond;
-  padding: 5px;
+  color: #060606;
+  padding: 1.1em;
   margin-top: 5em;
+  cursor: pointer;
 }
 
 .Nav {
-  background-color: #4b5097;
+  background-color: #080a28;
   width: 100vw;
   height: 2em;
   text-align: center;
   left: 0;
   position: fixed;
   top: 0;
-  z-index: 20;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 1em;
+  padding-bottom: 1em;
   z-index: 1;
 }
 
@@ -44,6 +44,15 @@ body {
   text-decoration: none;
   color: white;
   font-size: 1.7em;
+}
+
+.nav-title {
+  float: left;
+  top: 0;
+  margin-left: 2em;
+  color: white;
+  font-size: 1.7em;
+  cursor: default;
 }
 
 .Navbar-link {
@@ -116,10 +125,33 @@ p {
 }
 
 .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 50%;
   height: 40vh;
   padding: 1em;
   margin-left: 1em;
+}
+
+.left h1 {
+  color: #fdf7f7;
+}
+
+.home-header {
+  max-width: 40%;
+  font-size: 1.4em;
+  color: #f3e6e6;
 }
 
 .right {
@@ -142,7 +174,8 @@ p {
       -ms-flex-direction: row;
           flex-direction: row;
   text-align: center;
-  max-width: 70vw;
+  max-width: 80vw;
+  height: 100%;
 }
 
 /* Main - wrappers */
@@ -164,28 +197,7 @@ p {
 }
 
 .main-center {
-  background-color: #d4c7c7;
-  margin-top: 2%;
-  min-width: 100vw;
-  height: 80vh;
-  z-index: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-.main-bottom {
-  background-color: #f3e6e6;
+  background-color: #fcf7f7;
   min-width: 100vw;
   height: 100vh;
   z-index: 1;
@@ -204,13 +216,16 @@ p {
           flex-direction: row;
 }
 
-.footer {
-  background-color: black;
-  float: bottom;
-  width: 100vw;
-  position: absolute;
-  color: whitesmoke;
-  height: 4em;
+.main-center img {
+  max-height: 90%;
+}
+
+.main-bottom {
+  background-color: rgba(45, 81, 100, 0.8);
+  color: #f3e6e6;
+  min-width: 100vw;
+  height: 100vh;
+  z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -224,7 +239,33 @@ p {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  font-size: 2em;
+}
+
+.main-bottom h1 {
+  color: whitesmoke;
+}
+
+.footer {
+  background-color: black;
+  float: bottom;
+  width: 100vw;
+  position: absolute;
+  color: whitesmoke;
+  height: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  font-size: 1.2em;
 }
 
 .paragraph {
@@ -267,20 +308,28 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
+  margin-top: 5em;
+  position: relative;
 }
 
-.products-title div {
+.products-title h5 {
   margin-left: 2em;
+  font-size: 1.5em;
+}
+
+.search-form {
+  margin-right: 1em;
+  height: 2.5em;
 }
 
 .products {
@@ -298,35 +347,54 @@ p {
       -ms-flex-direction: row;
           flex-direction: row;
   width: 75vw;
-  height: 70vh;
+  height: 100%;
+  margin-bottom: 1em;
   font-family: 'Chakra Petch', sans-serif;
 }
 
 .products-container {
-  width: 80%;
+  width: 90%;
   max-height: 90%;
-  overflow: auto;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 33% 33% 33%;
-      grid-template-columns: 33% 33% 33%;
-  padding: 10px;
-}
-
-img {
-  max-width: 100%;
-  max-height: 100%;
+  -ms-grid-columns: 25% 25% 25% 25%;
+      grid-template-columns: 25% 25% 25% 25%;
+  margin-top: 7em;
 }
 
 .product {
-  max-width: 90%;
-  max-height: 100%;
-  padding: 1em;
-  margin: 1em;
-  border-radius: 5%;
-  color: #270369;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  max-width: 100%;
+  min-height: 350px;
+  padding: .2em;
+  margin: .1em;
+  border-radius: 1%;
+  color: #f3e6e6;
   font-style: normal;
-  background-color: #26193d;
+  background-color: rgba(45, 81, 100, 0.8);
+}
+
+.product img {
+  max-width: 90%;
+  max-height: 90%;
+  margin-bottom: .5em;
+}
+
+.product h4 {
+  margin-bottom: -.5em;
 }
 
 .description {
@@ -342,8 +410,24 @@ img {
 }
 
 .categories-sidebar {
-  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 10%;
   height: 80%;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 
 .categories-sidebar h2 {
