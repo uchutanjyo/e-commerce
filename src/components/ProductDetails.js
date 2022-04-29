@@ -13,7 +13,7 @@ const productId = useParams();
 
     // const [productId, setProductId] = useState('')
 const { products, product, filtered } = useGlobalContext()
-    const [productDetails, setProductDetails] = useState([])
+    const [singleProductId, setSingleProductId] = useState([])
 
 
         useEffect(()=> {
@@ -21,8 +21,7 @@ const { products, product, filtered } = useGlobalContext()
             .then(res => {
         return res
            }).then(res => {
-                        console.log(res.data.id,'QQ')
-                     setProductDetails([res.data.id])
+                     setSingleProductId([res.data.id])
                 return res
             })
             .catch(err =>{
@@ -30,23 +29,23 @@ const { products, product, filtered } = useGlobalContext()
             })
         }, [productId.id])
 
-const newProduct = filtered.filter((product) => {
-            console.log(product.id, productDetails[0])
-       return productDetails == product.id
+const productDetails = filtered.filter((product) => {
+       return singleProductId == product.id
     })
-
-    console.log(newProduct)
   return (
-
 <>
-       <div className='left'>
-    {newProduct.map(product => {
-    const {id, title, description, imageUrl, price, category} = product;
-    return <Product id={id} title={title} description={description} imageUrl={imageUrl} price={price} category={category}></Product>
+       <div className='product-details-main'>
+    {productDetails.map(product => {
+        console.log(product)
+    const {id, title, description, medImageUrl, imageUrl, price, category} = product;
+    return (
+        <div className='product-details'>
+                        <img src={medImageUrl} alt={description}/>
+
+        </div>
+    )
     })}
-          
-       </div>
-     
+    </div>
 </>
   );
 };

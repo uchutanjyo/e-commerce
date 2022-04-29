@@ -16,7 +16,6 @@ return res.json(products);
 }
 
 
-
 exports.getProduct = (req, res, next) => {
   const prodId = req.params.productId;
 Product.findByPk(prodId)

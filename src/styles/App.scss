@@ -350,6 +350,47 @@ list-style-type:none;
     border-radius: 75%;
 }
 
+
+// Product details page
+.product-details-main {
+  @include flexCenter(row);
+  width: 100vw;
+}
+
+.product-details {
+@include flexCenter(column);
+text-align: center;
+min-width: 30%;
+  height: 40em;
+padding: .2em;
+margin-top: 10em;
+border-radius: 1%;
+color:rgb(243, 230, 230);
+font-style: normal;
+background-color:rgba(45, 81, 100, 0.8);
+
+      img {
+            
+                margin-bottom: .5em;
+                
+      }
+      h4 {
+      
+      }
+}
+
+// .main-center {
+//     background-color: rgb(252, 247, 247);
+//     min-width: 100vw;
+//     height: 100vh;
+//     z-index: 1;
+//     @include flexCenter(row);
+//     img {
+//         max-height: 90%;
+//     }
+// }
+
+
 /* Button */
 .button {
     max-width: 3em;

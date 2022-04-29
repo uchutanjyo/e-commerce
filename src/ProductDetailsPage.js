@@ -15,9 +15,7 @@ const Products = () => {
   return (
 
 <>
-<div className='right'>
- 
-</div>
+
     <ProductDetails></ProductDetails>
 
 </>

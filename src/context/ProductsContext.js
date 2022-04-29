@@ -25,6 +25,8 @@ const AppProvider = ({children}) => {
         const newProducts = data.data
         setProducts(newProducts)
         isLoading(false)
+                console.log(newProducts);
+
         }  catch(error) {
         console.log(error);
         } }

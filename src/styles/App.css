@@ -506,6 +506,52 @@ p {
   border-radius: 75%;
 }
 
+.product-details-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100vw;
+}
+
+.product-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  min-width: 30%;
+  height: 40em;
+  padding: .2em;
+  margin-top: 10em;
+  border-radius: 1%;
+  color: #f3e6e6;
+  font-style: normal;
+  background-color: rgba(45, 81, 100, 0.8);
+}
+
+.product-details img {
+  margin-bottom: .5em;
+}
+
 /* Button */
 .button {
   max-width: 3em;

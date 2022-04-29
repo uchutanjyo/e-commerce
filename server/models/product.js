@@ -21,7 +21,16 @@ const Product = sequelize.define('product', {
   description: {
     type: Sequelize.STRING,
     allowNull: false
+  },
+    category: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+    medImageUrl: {
+    type: Sequelize.STRING,
+    allowNull: false
   }
+
 });
 
 module.exports = Product;
