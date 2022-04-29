@@ -4,6 +4,27 @@ import ProductsContainer from './components/ProductsContainer';
 import { useGlobalContext } from './context/ProductsContext';
 import Product from './components/Product';
 
+import axios from "axios";    
+import { useParams } from "react-router-dom";
+
+const params = useParams();
+    
+    const [products, setProducts] = useState([])
+    
+        useEffect(()=> {
+            axios.get(`http://localhost:8001/posts/${params.id}`)
+            .then(res => {
+                console.log(res)
+                setProducts(res.data)
+                console.log(products)
+                
+            })
+            .catch(err =>{
+                console.log(err)
+            })
+        }, [params.id])
+
+
 
 const Products = () => {
 
@@ -24,7 +45,7 @@ const { products, product} = useGlobalContext()
      product={product}>
 {products.map((product) => {
 const {id, title, description, price, image, handleClick} = product;
- console.log(product.id, productId)
+ console.log(product.id, productId, 'OOASD')
    if( product.id == productId) {
     
 return (
@@ -41,19 +62,11 @@ return (
        
      </Product>
      </div>
-
-
-
-
-
-
 </>
   );
 };
 
 export default Products;
-
-
 
 
 

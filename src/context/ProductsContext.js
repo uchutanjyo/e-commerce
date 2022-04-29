@@ -21,7 +21,6 @@ const AppProvider = ({children}) => {
         const getProducts =async () => {
         isLoading(true)
         try {
-                 console.log('NPg')
         const data = await axios.get(url);
         const newProducts = data.data
         setProducts(newProducts)
