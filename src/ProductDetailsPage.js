@@ -1,11 +1,8 @@
 
 import React, {useState, useEffect} from 'react';
-import ProductsContainer from './components/ProductsContainer';
-import { useGlobalContext } from './context/ProductsContext';
-import Product from './components/Product';
+
 import ProductDetails from './components/ProductDetails'
-import axios from "axios";    
-import { useParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 
 
@@ -16,7 +13,14 @@ const Products = () => {
 
 <>
 
+ <div className="product-details-left-sidebar">
+   <Link to="/products" className='back'>
+<h3>Back to products</h3>
+</Link>
+</div>
+
     <ProductDetails></ProductDetails>
+
 
 </>
   );

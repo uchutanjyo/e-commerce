@@ -1,9 +1,6 @@
 
 import React, {useState, useEffect} from 'react';
-import ProductsContainer from './ProductsContainer';
 import { useGlobalContext } from '../context/ProductsContext';
-import Product from './Product';
-
 import axios from "axios";    
 import { useParams } from "react-router-dom";
 
@@ -34,18 +31,32 @@ const productDetails = filtered.filter((product) => {
     })
   return (
 <>
-       <div className='product-details-main'>
-    {productDetails.map(product => {
-        console.log(product)
+ {productDetails.map(product => {
     const {id, title, description, medImageUrl, imageUrl, price, category} = product;
     return (
-        <div className='product-details'>
-                        <img src={medImageUrl} alt={description}/>
+<div className='product-details-main'>
 
-        </div>
-    )
-    })}
-    </div>
+          <div className='product-details'>
+         <h2>{`${title.substring(0, 100)}`.toUpperCase()}</h2>
+                      <div className='product-details-image'>
+
+            <img src={medImageUrl} alt="description" />
+        </div>  </div>
+   
+
+ <div className="product-details-right-sidebar">
+<h2>Price: ${price}</h2>
+
+<p>{description}
+</p>
+<button>Add to cart</button>
+
+</div>
+</div>
+  ) })}      
+   
+
+    
 </>
   );
 };

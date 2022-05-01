@@ -107,10 +107,14 @@ p {
         text-align: center;
       width: 100vw;
        height: 100vh;
+           animation: fadeinfast .6s;
+
         div {
        width: 90%
     }
 }
+ 
+
 
 
 .left {
@@ -119,11 +123,14 @@ p {
     height: 40vh;
     padding: 1em;
     margin-left: 1em;
+          
+
     h1 {
     color:rgb(253, 247, 247);
 
     }
 }
+
 
 .home-header {
     // padding-left: 4em;
@@ -136,14 +143,62 @@ color:rgb(243, 230, 230);
 .right {
     width: 50%;
     height: 70vh;
+    
 }
-   
+
 
 .featured-products {
       @include flexCenter(row);
       text-align: center;
       max-width: 80vw;
       height: 100%;
+}
+
+// Contact
+.contact {
+ margin-top: 5em;
+}
+
+.contact-form {
+display: table; 
+border-collapse:separate; 
+border-spacing:1em;
+font-size: 1.2em;
+margin-top: 3em;
+
+section {
+    display: table-row;
+}
+label {
+    display: table-cell; 
+        }
+input {
+    display: table-cell;
+        margin-left: 1em;
+         }
+   button {
+    display: table-cell;
+   margin-top: 1em;
+   margin-left: 11em;
+   width: 10em;
+}
+}
+
+.form-input {
+    width: 30em;
+}
+
+#name {
+    height: 2em;
+}
+
+#email {
+    height: 2em;
+}
+
+#message {
+     padding: 0 0 20em 0;
+
 }
 
 /* Main - wrappers */
@@ -205,7 +260,7 @@ color:rgb(243, 230, 230);
 .about {
     @include flexCenter(row);
     width: 100vw;
-    height: 100vh;
+    height: 95vh;
 }
 
 .about-left {
@@ -216,11 +271,18 @@ color:rgb(243, 230, 230);
     margin-left: 1em;
 background-color:rgba(45, 81, 100, 0.5);
 border-radius: 1%;
+    animation: fadeinfast .6s;
+      
     z-index: -1;
        img {
         max-height: 30em;
-    
+     animation: fadeinfast .4s;
     }
+}
+
+@keyframes fadeinfast {
+    from { opacity: 0.2; }
+    to   { opacity: .7; }
 }
 
 .about-right {
@@ -301,16 +363,25 @@ border-radius: 1%;
 color:rgb(243, 230, 230);
 font-style: normal;
 background-color:rgba(45, 81, 100, 0.8);
-
+animation: fadein 1s;
       img {
                 max-width: 90%;
                 max-height: 90%;
                 margin-bottom: .5em;
-                
+                animation: fadein 2s;
       }
       h4 {
          margin-bottom: -.5em;
       }
+}
+
+@keyframes fadein {
+    from { opacity: 0.2; }
+    to   { opacity: 1; }
+}
+
+.product img:hover {
+    opacity: 50%
 }
 
 .description {
@@ -353,30 +424,81 @@ list-style-type:none;
 
 // Product details page
 .product-details-main {
-  @include flexCenter(row);
+    display: flex;
+flex-direction: row;
+align-items: center;
   width: 100vw;
+  margin-bottom: 2em;
 }
 
-.product-details {
-@include flexCenter(column);
-text-align: center;
-min-width: 30%;
-  height: 40em;
-padding: .2em;
-margin-top: 10em;
-border-radius: 1%;
-color:rgb(243, 230, 230);
-font-style: normal;
-background-color:rgba(45, 81, 100, 0.8);
 
+.product-details-left-sidebar {
+    @include flexCenter(column);
+    margin-left: 1em;
+   margin-top:5em;
+    position: fixed;
+   width: 13%;
+    height: 80%;
+    border: none;
+    font-size: 1.5em;
+   
+}
+
+ .back {
+         text-decoration: underline; 
+         color: black
+    }
+
+.product-details {
+display: flex;
+flex-direction: column;
+height: 67em;
+width: 50em;
+ margin-left: 20%;
+margin-top: 10em;
+margin-right: 1em;
+ h2 {
+        margin-bottom: 1em;
+    }
+}
+
+.product-details-image {
+    @include flexCenter(column);
+ height: 95%;
+ width: 95%;
+padding: .5em;
+border-radius: 1%;
+background-color:rgba(45, 81, 100, 0.4);
+   
       img {
-            
-                margin-bottom: .5em;
-                
+            min-height: 94%;
+            max-width: 94%;
+                margin-bottom: .5em;     
       }
-      h4 {
-      
-      }
+}
+
+.product-details-right-sidebar {
+  display: flex;
+flex-direction: column;
+    width: 15%;
+    height: 80%;
+    margin-left: 7em;
+    border: none;
+       padding-left: 3em;
+        padding-right: 3em;
+    p {
+     font-size: 1.5em;
+    };
+    button {
+    font-family: 'Chakra Petch',sans-serif;
+    border-radius: 5%;
+    font-size: 1.3em;
+    color: rgb(6, 6, 6);
+    padding: 1.1em;
+    margin-top: 5em;
+    width: 100%;
+    cursor: pointer;
+    }
 }
 
 // .main-center {
