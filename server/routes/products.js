@@ -8,10 +8,6 @@ router.get('/products', shopController.getProducts)
 
 // router.post('../home', products.postProducts)
 
-router.get('/', shopController.getIndex);
-
-router.get('/products', shopController.getProducts);
-
 router.get('/products/:productId', shopController.getProduct);
 // THE SEMIcolon indicates that :productId can be aanything
 

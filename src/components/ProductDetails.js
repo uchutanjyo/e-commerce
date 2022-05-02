@@ -26,6 +26,27 @@ const { products, product, filtered } = useGlobalContext()
             })
         }, [productId.id])
 
+console.log(singleProductId[0], 'OKOK')
+
+    const handleSubmit = e => {
+    e.preventDefault();
+console.log('OH', singleProductId[0])
+let request = {method: 'POST',
+            url: "http://localhost:8001/cart",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: {
+               productId: singleProductId[0]}}
+console.log(request)
+    axios(request)
+     .then(response => {
+       console.log('ASD')
+      return response.json() })    
+      .then(res => console.log(res)).
+    catch(err => console.log(err))  };
+
+
 const productDetails = filtered.filter((product) => {
        return singleProductId == product.id
     })
@@ -49,7 +70,7 @@ const productDetails = filtered.filter((product) => {
 
 <p>{description}
 </p>
-<button>Add to cart</button>
+<button onClick={handleSubmit}>Add to cart</button>
 
 </div>
 </div>

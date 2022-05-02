@@ -5,10 +5,10 @@ const { redirect } = require('express/lib/response');
 const Product = require('../models/product');
 
  
-exports.getProducts = (req, res) => {
+exports.getProducts = (req, res, next) => {
   try {
   Product.findAll().then(products => {
-    console.log(products, 'itworked');
+    console.log('itworked');
 return res.json(products);
  }).catch(err => console.log(err))
 }
@@ -24,32 +24,27 @@ return res.json(product);
 }).catch(err => console.log(err))
 };
 
-exports.getIndex = (req, res, next) => {
-  Product.findAll().then(products => {
-  // shop/index
-  console.log(products)
-  }).catch(err => console.log(err))
-};
-
 exports.getCart = (req, res, next) => {
-  req.user.getCart()
-  .then(cart => {
+req.user.getCart()
+.then(cart => {
     return cart.getProducts()
     .then(products => {
-    //  shop/cart
-     console.log(products)
+     return res.json(products)
     }).catch(err => console.log(err))
     })
   .catch(err => console.log(err))
 };
 
 exports.postCart = (req,res,next) => {
+  try {
+    console.log('HAHAHA', req.body.productId)
   const prodId = req.body.productId;
   let fetchedCart;
+  console.log(req.user)
   req.user.getCart()
   .then(cart=> {
+    console.log(fetchedCart, 'whatsincartnow')
     fetchedCart = cart;
-    console.log(cart)
     return cart.getProducts({where: {id: prodId}})
   }).then(products=> {
     let product;
@@ -68,6 +63,7 @@ exports.postCart = (req,res,next) => {
   }).then(() => {
       res.redirect('/cart');
   }).catch(err => console.log(err))
+} catch {(err => console.log(err,'HAHA'))}
 }
 
 
