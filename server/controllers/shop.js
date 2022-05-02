@@ -40,10 +40,10 @@ exports.postCart = (req,res,next) => {
     console.log('HAHAHA', req.body.productId)
   const prodId = req.body.productId;
   let fetchedCart;
-  console.log(req.user)
+  console.log(req.user, 'R-U')
   req.user.getCart()
   .then(cart=> {
-    console.log(fetchedCart, 'whatsincartnow')
+    console.log(cart, 'whatsincartnow')
     fetchedCart = cart;
     return cart.getProducts({where: {id: prodId}})
   }).then(products=> {

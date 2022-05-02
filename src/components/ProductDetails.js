@@ -41,8 +41,8 @@ let request = {method: 'POST',
 console.log(request)
     axios(request)
      .then(response => {
-       console.log('ASD')
-      return response.json() })    
+       console.log(response, 'ASD')
+      return response })    
       .then(res => console.log(res)).
     catch(err => console.log(err))  };
 

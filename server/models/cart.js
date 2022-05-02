@@ -9,10 +9,6 @@ const Cart = sequelize.define('cart', {
     allowNull: false,
     primaryKey: true
   }
-  // userId: {
-  //   type: Sequelize.INTEGER,
-  //   allowNull: false,
-  // }
 });
 
 module.exports = Cart;
