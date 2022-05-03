@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './styles/App.css';
 import Error from './Error'
 import Footer from './components/Footer';
+import { useContext } from 'react';
 
 
 // react router
@@ -44,6 +45,8 @@ return (
 <Route  path="products/" element={<Products />}>
 </Route>
 <Route  path="productdetailspage/" element={<ProductDetailsPage />}>
+</Route>
+<Route path=":productId/productdetailspage" element={<ProductDetailsPage />}>
 </Route>
 <Route path=":productId/productdetailspage" element={<ProductDetailsPage />}>
 </Route>

@@ -2,10 +2,7 @@ import axios from 'axios'
 import React, {useState, useCallback, useContext, useEffect} from 'react'
 import reducer from './reducer'
 
-
-
 const AppContext = React.createContext();
-
 
 const AppProvider = ({children}) => {
 
@@ -14,7 +11,33 @@ const AppProvider = ({children}) => {
         const [searchTerm, setSearchTerm] = useState('')
         const [products, setProducts] = useState([])
         const [show, setShow] = useState(false);
-    
+
+        const [cart, setCart] = useState([])
+
+        const [redirect, setRedirect] = useState(false)
+ 
+
+   const carturl =
+    'http://localhost:8001/cart'
+
+   const getCart = async () => {
+        isLoading(true)
+        const data = await axios.get(carturl);
+        const newCart = data.data
+        setCart(newCart)
+        isLoading(false)
+        return cart       
+          .catch(error => {
+        console.log(error);
+        })}
+
+           useEffect(()=> {
+            getCart()
+        }, []) 
+
+
+
+
           const url =
     'http://localhost:8001/products'
   
@@ -25,7 +48,6 @@ const AppProvider = ({children}) => {
         const newProducts = data.data
         setProducts(newProducts)
         isLoading(false)
-                console.log(newProducts);
 
         }  catch(error) {
         console.log(error);
@@ -56,6 +78,11 @@ let filtered  = products.map((item) => {
         filtered,
         show,
         setShow,
+        cart,
+        setCart,
+        getCart,
+        redirect,
+        setRedirect
         // handleClick
 
     }}> {children}

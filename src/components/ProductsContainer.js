@@ -1,9 +1,7 @@
 
 import React, {useState, useEffect} from 'react';
 import { useGlobalContext } from '../context/ProductsContext';
-import SearchForm from './SearchForm';
 import Product from './Product'
- import { useParams } from "react-router-dom"; 
 
 
 const ProductsContainer = ({children}) => {

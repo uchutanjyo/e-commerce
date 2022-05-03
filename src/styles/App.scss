@@ -512,6 +512,13 @@ flex-direction: column;
 //     }
 // }
 
+// Cart Page
+// Cart Contents component
+.cart {
+    @include flexCenter(column);
+    margin-top: 10em;
+}
+
 
 /* Button */
 .button {

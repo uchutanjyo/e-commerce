@@ -3,22 +3,20 @@ import React, {useState, useEffect} from 'react';
 import { useGlobalContext } from '../context/ProductsContext';
 import axios from "axios";    
 import { useParams } from "react-router-dom";
-
+import { UseAcorn } from './UseAcorn'
 
 const Products = () => {
 const productId = useParams();
-
-    // const [productId, setProductId] = useState('')
-const { products, product, filtered } = useGlobalContext()
+const { products, product, filtered, redirect, setRedirect } = useGlobalContext()
     const [singleProductId, setSingleProductId] = useState([])
 
-
+    // get products for products page
         useEffect(()=> {
             axios.get(`http://localhost:8001/products/${productId.productId}`)
             .then(res => {
         return res
            }).then(res => {
-                     setSingleProductId([res.data.id])
+           setSingleProductId([res.data.id])  
                 return res
             })
             .catch(err =>{
@@ -26,10 +24,12 @@ const { products, product, filtered } = useGlobalContext()
             })
         }, [productId.id])
 
-console.log(singleProductId[0], 'OKOK')
 
+
+// send post request to add item to cart
     const handleSubmit = e => {
     e.preventDefault();
+     setRedirect(true)
 console.log('OH', singleProductId[0])
 let request = {method: 'POST',
             url: "http://localhost:8001/cart",
@@ -38,13 +38,20 @@ let request = {method: 'POST',
             },
             data: {
                productId: singleProductId[0]}}
-console.log(request)
     axios(request)
      .then(response => {
-       console.log(response, 'ASD')
+       
       return response })    
-      .then(res => console.log(res)).
-    catch(err => console.log(err))  };
+   .catch(err => console.log(err))};
+
+
+    //    useEffect(() => {
+    //        console.log(redirect, 'rr')
+    //         if (redirect) {
+    //             console.log(UseAcorn)
+    //              UseAcorn('/cart')     
+    //         }
+    //     }, [redirect])
 
 
 const productDetails = filtered.filter((product) => {
@@ -70,7 +77,9 @@ const productDetails = filtered.filter((product) => {
 
 <p>{description}
 </p>
+
 <button onClick={handleSubmit}>Add to cart</button>
+<button onClick={UseAcorn}>Add to cart</button>
 
 </div>
 </div>

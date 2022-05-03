@@ -37,16 +37,16 @@ req.user.getCart()
 
 exports.postCart = (req,res,next) => {
   try {
-    console.log('HAHAHA', req.body.productId)
   const prodId = req.body.productId;
   let fetchedCart;
-  console.log(req.user, 'R-U')
   req.user.getCart()
   .then(cart=> {
-    console.log(cart, 'whatsincartnow')
+    
     fetchedCart = cart;
     return cart.getProducts({where: {id: prodId}})
-  }).then(products=> {
+  }).then(products=> 
+    {
+
     let product;
     if (products.length > 0) {
       product = products[0]
@@ -55,17 +55,22 @@ exports.postCart = (req,res,next) => {
     if (product) {
       const oldQuantity = product.cartItem.quantity;
       newQuantity = oldQuantity + 1;
+    
+
       return fetchedCart.addProduct(product, {through: {quantity: newQuantity}})
     }
     return Product.findByPk(prodId).then(product => {
+                   
       return fetchedCart.addProduct(product, {through: {quantity: newQuantity}})
+
     }).catch(err => console.log(err))
   }).then(() => {
-      res.redirect('/cart');
+         console.log('A+aaa')
+       window.location.replace('/'
+       )
   }).catch(err => console.log(err))
 } catch {(err => console.log(err,'HAHA'))}
 }
-
 
 exports.postDeleteCartItem = (req, res, next) => {
     const prodId = req.body.productId;
@@ -78,7 +83,8 @@ exports.postDeleteCartItem = (req, res, next) => {
     return product.cartItem.destroy();
   })
   .then(result => {
-         res.redirect('/cart');
+    console.log('aSD')
+    res.redirect('../src/Cart.js');    
 
   })
   .catch(err => console.log(err))
@@ -101,6 +107,7 @@ req.user.createOrder()
 .catch(err=>console.log(err))
 })
 .then(result=> {
+  
   fetchedCart.setProducts(null)
 })
 .then(result=> {

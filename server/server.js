@@ -28,7 +28,6 @@ app.use(express.json());
 
 
 app.use(function(req, res, next) {
-  console.log("COOL")
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
   res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, OPTIONS');
@@ -39,7 +38,6 @@ app.use((req, res, next) => {
   User.findByPk(1)
     .then(user => {
       req.user = user;
-      console.log(req.user, 'r-u')
       next();
     })
     .catch(err => console.log(err));
@@ -50,7 +48,7 @@ app.use('/', productRoutes)
 
 sequelize
   .sync()
-  // .sync()
+
   .then(result => {
     return User.findByPk(1);
   })
@@ -58,7 +56,6 @@ sequelize
     if (!user) {
       return User.create({ name: 'Matt', email: 'test@test.com' });
     }
-        // console.log(user, 'current user')
     return user;
   })
 // .then(user => {
@@ -66,7 +63,6 @@ sequelize
 
 // })
 .then(cart => {
-    // console.log(cart,'cart')
 app.listen(8001);
 
 })
