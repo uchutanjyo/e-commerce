@@ -17,14 +17,14 @@ const AppProvider = ({children}) => {
         const [redirect, setRedirect] = useState(false)
  
 
-   const carturl =
+   const cartUrl =
     'http://localhost:8001/cart'
 
    const getCart = async () => {
         isLoading(true)
-        const data = await axios.get(carturl);
+        const data = await axios.get(cartUrl);
         const newCart = data.data
-        setCart(newCart)
+            setCart(newCart)
         isLoading(false)
         return cart       
           .catch(error => {
@@ -33,10 +33,7 @@ const AppProvider = ({children}) => {
 
            useEffect(()=> {
             getCart()
-        }, []) 
-
-
-
+        }, [redirect]) 
 
           const url =
     'http://localhost:8001/products'
@@ -82,7 +79,8 @@ let filtered  = products.map((item) => {
         setCart,
         getCart,
         redirect,
-        setRedirect
+        setRedirect,
+        getCart
         // handleClick
 
     }}> {children}

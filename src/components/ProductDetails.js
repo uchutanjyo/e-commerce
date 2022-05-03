@@ -1,14 +1,16 @@
 
-import React, {useState, useEffect} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import { useGlobalContext } from '../context/ProductsContext';
 import axios from "axios";    
-import { useParams } from "react-router-dom";
-import { UseAcorn } from './UseAcorn'
+import { useNavigate, useParams } from "react-router-dom";
+import { getByPlaceholderText } from '@testing-library/react';
 
 const Products = () => {
 const productId = useParams();
-const { products, product, filtered, redirect, setRedirect } = useGlobalContext()
+const { products, product, filtered, redirect, setRedirect, cart, setCart, getCart} = useGlobalContext()
     const [singleProductId, setSingleProductId] = useState([])
+
+  const navigate = useNavigate();
 
     // get products for products page
         useEffect(()=> {
@@ -26,32 +28,37 @@ const { products, product, filtered, redirect, setRedirect } = useGlobalContext(
 
 
 
-// send post request to add item to cart
-    const handleSubmit = e => {
+// send post request to add item to cart, set redirect state to true.
+    const handleSubmit =  e => {
     e.preventDefault();
-     setRedirect(true)
-console.log('OH', singleProductId[0])
-let request = {method: 'POST',
+    setRedirect(true)
+    let request = {method: 'POST',
             url: "http://localhost:8001/cart",
             headers: {
                 'Content-Type': 'application/json'
             },
             data: {
                productId: singleProductId[0]}}
-    axios(request)
-     .then(response => {
-       
-      return response })    
-   .catch(err => console.log(err))};
+            axios(request)
+                .then(res => {
+                return res
+                })   
+        .catch(err => console.log(err))};
 
+        // redirects to Cart page based on whether redirect state is sett to true/false. redirect is then reset to false.
+       useEffect(() => {
+            if (redirect) {
+              navigate('/cart')
+              setRedirect(false)
+            }
+        }, [cart])
 
+    //     // on pageload, make sure redirect is set to false
     //    useEffect(() => {
-    //        console.log(redirect, 'rr')
     //         if (redirect) {
-    //             console.log(UseAcorn)
-    //              UseAcorn('/cart')     
+    //           setRedirect(false)
     //         }
-    //     }, [redirect])
+    //     }, [])
 
 
 const productDetails = filtered.filter((product) => {
@@ -79,7 +86,7 @@ const productDetails = filtered.filter((product) => {
 </p>
 
 <button onClick={handleSubmit}>Add to cart</button>
-<button onClick={UseAcorn}>Add to cart</button>
+
 
 </div>
 </div>
