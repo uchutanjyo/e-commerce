@@ -1,11 +1,13 @@
 
 import React, {useState, useEffect} from 'react';
-import { useGlobalContext } from '../context/ProductsContext';
+import { useGlobalContext } from '../context/Context';
 import Product from './Product'
 
 
 const ProductsContainer = ({children}) => {
 const {products, setProducts, searchTerm, loading,getProducts, filtered, setShow, handleClick} = useGlobalContext()
+
+
 
 if (loading) {
   return <div className='products'>Loading...</div>

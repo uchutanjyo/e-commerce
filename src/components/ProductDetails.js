@@ -1,6 +1,6 @@
 
 import React, {useState, useRef, useEffect} from 'react';
-import { useGlobalContext } from '../context/ProductsContext';
+import { useGlobalContext } from '../context/Context';
 import axios from "axios";    
 import { useNavigate, useParams } from "react-router-dom";
 import { getByPlaceholderText } from '@testing-library/react';
@@ -12,7 +12,7 @@ const { products, product, filtered, redirect, setRedirect, cart, setCart, getCa
 
   const navigate = useNavigate();
 
-    // get products for products page
+    // get products for product details page
         useEffect(()=> {
             axios.get(`http://localhost:8001/products/${productId.productId}`)
             .then(res => {
@@ -25,8 +25,6 @@ const { products, product, filtered, redirect, setRedirect, cart, setCart, getCa
                 console.log(err)
             })
         }, [productId.id])
-
-
 
 // send post request to add item to cart, set redirect state to true.
     const handleSubmit =  e => {
@@ -53,15 +51,8 @@ const { products, product, filtered, redirect, setRedirect, cart, setCart, getCa
             }
         }, [cart])
 
-    //     // on pageload, make sure redirect is set to false
-    //    useEffect(() => {
-    //         if (redirect) {
-    //           setRedirect(false)
-    //         }
-    //     }, [])
-
-
 const productDetails = filtered.filter((product) => {
+
        return singleProductId == product.id
     })
   return (

@@ -41,7 +41,6 @@ exports.postCart = (req,res,next) => {
   let fetchedCart;
   req.user.getCart()
   .then(cart=> {
-    
     fetchedCart = cart;
     return cart.getProducts({where: {id: prodId}})
   }).then(products=> 
@@ -55,40 +54,39 @@ exports.postCart = (req,res,next) => {
     if (product) {
       const oldQuantity = product.cartItem.quantity;
       newQuantity = oldQuantity + 1;
-    
 
       return fetchedCart.addProduct(product, {through: {quantity: newQuantity}})
     }
     return Product.findByPk(prodId).then(product => {
                    
-      return fetchedCart.addProduct(product, {through: {quantity: newQuantity}})
+      return res.json(fetchedCart.addProduct(product, {through: {quantity: newQuantity}}))
 
-    }).catch(err => console.log(err))
-  }).then(() => {
-         console.log('A+aaa')
-       window.location.replace('/'
-       )
+    })
   }).catch(err => console.log(err))
-} catch {(err => console.log(err,'HAHA'))}
+} catch {(err => console.log(err))}
 }
 
+
+// delete item from cart
 exports.postDeleteCartItem = (req, res, next) => {
-    const prodId = req.body.productId;
+    const prodId = req.body.productId.toString()
   req.user.getCart()
   .then(cart => {
     return cart.getProducts({where: {id: prodId}})
   })
   .then(products => {
+    console.log(products, 'THE PRODUCTS')
     const product = products[0];
     return product.cartItem.destroy();
   })
   .then(result => {
-    console.log('aSD')
-    res.redirect('../src/Cart.js');    
-
+    console.log(prodId, 'prodid')
+return res.json(result)
   })
   .catch(err => console.log(err))
   }
+
+
 
 exports.postOrder = (req, res, next) => {
   let fetchedCart;
@@ -107,7 +105,7 @@ req.user.createOrder()
 .catch(err=>console.log(err))
 })
 .then(result=> {
-  
+
   fetchedCart.setProducts(null)
 })
 .then(result=> {

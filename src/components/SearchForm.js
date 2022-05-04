@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import { useGlobalContext } from '../context/ProductsContext';
+import { useGlobalContext } from '../context/Context';
 
 
 const SearchForm = () => {

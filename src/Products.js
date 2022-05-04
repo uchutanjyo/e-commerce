@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import ProductsContainer from './components/ProductsContainer';
-import { useGlobalContext } from './context/ProductsContext';
+import { useGlobalContext } from './context/Context';
 import SearchForm from './components/SearchForm';
 
 const Products = ({product}) => {

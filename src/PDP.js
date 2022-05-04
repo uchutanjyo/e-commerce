@@ -1,7 +1,7 @@
 
 import React, {useState, useEffect} from 'react';
 import ProductsContainer from './components/ProductsContainer';
-import { useGlobalContext } from './context/ProductsContext';
+import { useGlobalContext } from './context/Context';
 import Product from './components/Product';
 
 import axios from "axios";    
@@ -24,18 +24,11 @@ const params = useParams();
             })
         }, [params.id])
 
-
-
 const Products = () => {
-
     const [productId, setProductId] = useState('')
 const { products, product} = useGlobalContext()
 
-
-
-
   return (
-
 <>
              <div className='top-banner'>
         <h1>PRODUCTS

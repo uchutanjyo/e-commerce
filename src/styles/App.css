@@ -738,11 +738,89 @@ p {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 10em;
+  margin-top: 6em;
+  width: 80vw;
 }
 
-/* Button */
-.button {
-  max-width: 3em;
+.your-cart {
+  width: 50%;
+  text-align: center;
+  border-bottom: 1px solid;
+  margin-bottom: 1em;
+}
+
+.cart-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 50%;
+  background-color: rgba(45, 81, 100, 0.4);
+  margin: 1em;
+  padding: 1em;
+}
+
+.cart-item-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50%;
+}
+
+.cart-item-left h4 {
+  margin-bottom: .2em;
+}
+
+.cart-item-left button {
+  font-family: 'Chakra Petch',sans-serif;
+  border-radius: 5%;
+  color: #060606;
+  padding: 1.1em;
+  cursor: pointer;
+}
+
+.cart-item-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50%;
+  -webkit-animation: fadein 1s;
+          animation: fadein 1s;
+}
+
+.cart-item-right img {
+  max-width: 40%;
+  max-height: 40%;
+  -webkit-animation: fadein 2s;
+          animation: fadein 2s;
 }
 /*# sourceMappingURL=App.css.map */
