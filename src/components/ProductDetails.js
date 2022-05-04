@@ -7,12 +7,12 @@ import { getByPlaceholderText } from '@testing-library/react';
 
 const Products = () => {
 const productId = useParams();
-const { products, product, filtered, redirect, setRedirect, cart, setCart, getCart} = useGlobalContext()
+const {filteredProducts, isLoading, searchTerm, product, redirect, setRedirect, cart, setCart, getCart} = useGlobalContext()
     const [singleProductId, setSingleProductId] = useState([])
 
   const navigate = useNavigate();
 
-    // get products for product details page
+     // get products for product details page
         useEffect(()=> {
             axios.get(`http://localhost:8001/products/${productId.productId}`)
             .then(res => {
@@ -51,7 +51,10 @@ const { products, product, filtered, redirect, setRedirect, cart, setCart, getCa
             }
         }, [cart])
 
-const productDetails = filtered.filter((product) => {
+
+
+
+const productDetails = filteredProducts.filter((product) => {
 
        return singleProductId == product.id
     })
