@@ -5,30 +5,37 @@ const { redirect } = require('express/lib/response');
 const Product = require('../models/product');
 
 // each of the following are treated equal by the js compiler:
-// findAll().then(data => { return res.json(data) })
-// findAll().then(data => res.json(data))
-// findAll().then(res.json)
+// foo().then(data => { return bar(data) })
+// foo().then(data => bar(data))
+// foo().then(bar)
+// BUT passing a function by reference (last example) wont work if it's parent object is needed
+// eg. Product.findAll().then(res.json) -> TypeError: Cannot read properties of undefined (reading 'app')
+// this is because the json method is passed alone without res, and express needs the res object (i think)
+// can get around this by binding the res object when passing the function reference: Product.findAll().then(res.json.bind(res))
+// but imo its harder to understand at a glance, so .then(data => res.json(data)) is prob best practice
 
-exports.getProducts = (req, res, next) => Product.findAll().then(res.json).catch(error => res.status(500).send('Internal server error.'));
+// see server.js for error handling via next()
+exports.getProducts = (req, res, next) => Product.findAll().then(data => res.json(data)).catch(next);
 
-exports.getProduct = (req, res, next) => Product.findByPk(req.params.productId).then(res.json).catch(error => res.status(500).send('Internal server error.'));
+exports.getProduct = (req, res, next) => Product.findByPk(req.params.productId).then(data => res.json(data)).catch(next);
 
-exports.getCart = (req, res, next) => req.user.getCart().then(getProducts).then(res.json).catch(error => res.status(500).send('Internal server error.'));
+exports.getCart = (req, res, next) => req.user.getCart().then(cart => cart.getProducts()).then(data => res.json(data)).catch(next);
 
 // compare postCart with promises vs async/await, so much easier to read!
+// also, no need for try/catch with promises, instead just use a .catch at the end of the promise chain
 exports.postCart = async (req, res, next) => {
   try {
     const { productId } = req.body;
     const cart = await req.user.getCart();
     const products = await cart.getProducts({ where: { id: productId }});
     // use the cart's existing product OR fetch the product
-    const product = products[0] || Product.findByPk(productId);
+    const product = products[0] || await Product.findByPk(productId);
     // increment the existing products quantity OR default to 1
     const quantity = product.cartItem ? product.cartItem.quantity + 1 : 1; 
-    const newProduct = await fetchedCart.addProduct(product, { through: { quantity } });
-    return res.json(newProduct);
+    const newProduct = await cart.addProduct(product, { through: { quantity } });
+    res.json(newProduct);
   } catch(error) {
-    return res.status(500).send('Internal server error.');
+    next(error);
   }
 };
 
@@ -39,15 +46,13 @@ exports.postDeleteCartItem = async (req, res, next) => {
     const cart = await req.user.getCart();
     const products = await cart.getProducts();
     const result = await products[0].cartItem.destroy();
-    return res.json(result);
+    res.json(result);
   } catch(error) {
-    return res.status(500).send('Internal server error.');
+    next(error);
   }
 };
 
-
-
-exports.postOrder = (req, res, next) => {
+exports.postOrder = async (req, res, next) => {
   try {
     const cart = await req.user.getCart();
     const products = await cart.getProducts();
@@ -56,13 +61,13 @@ exports.postOrder = (req, res, next) => {
     const orderProducts = products.map(product => ({...product, orderItem: { quantity: product.cartItem.quantity}}));
     await order.addProducts(orderProducts);
     await cart.setProducts(null);
-    return res.redirect('/orders');
+    res.redirect('/orders');
   } catch(error) {
-    return res.status(500).send('Internal server error.');
+    next(error);
   }
 };
 
-exports.getOrders = (req, res, next) => req.user.getOrders({ include: ['products'] }).then(res.json).catch('Internal server error.')
+exports.getOrders = (req, res, next) => req.user.getOrders({ include: ['products'] }).then(data => res.json(data)).catch(next)
 
 exports.getCheckout = (req, res, next) => {
   // res.render('shop/checkout', {
