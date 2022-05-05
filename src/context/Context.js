@@ -29,9 +29,6 @@ const AppProvider = ({ children }) => {
         setCart(newCart)
         isLoading(false)
         return cart
-            .catch(error => {
-                console.log(error);
-            })
     }
 
     useEffect(() => {
