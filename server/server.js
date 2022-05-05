@@ -11,6 +11,7 @@ const CartItem = require('./models/cart-item');
 const Order = require('./models/order');
 const OrderItem = require('./models/order-item');
 
+const PORT = process.env.PORT || 8001;
 Product.belongsTo(User, { constraints: true, onDelete: 'CASCADE' });
 User.hasMany(Product);
 User.hasOne(Cart);
@@ -63,7 +64,9 @@ sequelize
 
 // })
 .then(cart => {
-app.listen(8001);
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`);
+});
 
 })
 .catch(err => console.log(err))
