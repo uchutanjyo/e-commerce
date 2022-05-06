@@ -10,8 +10,11 @@ exports.getProducts = (req, res, next) => {
   Product.findAll().then(products => {
     console.log('itworked');
 return res.json(products);
- }).catch(err => console.log(err))
-}
+ }) .catch(err => {
+    console.log(err);
+    res.status(500).send('Internal server error')
+  }
+)}
   catch(err) { console.log(err, 'IT DIDNTWORK') } 
 }
 
@@ -62,13 +65,18 @@ exports.postCart = (req,res,next) => {
       return res.json(fetchedCart.addProduct(product, {through: {quantity: newQuantity}}))
 
     })
-  }).catch(err => console.log(err))
-} catch {(err => console.log(err))}
+  }) .catch(err => {
+    console.log(err);
+    res.status(500).send('Internal server error')
+  })
+}
+ catch {(err => console.log(err))}
 }
 
 
 // delete item from cart
 exports.postDeleteCartItem = (req, res, next) => {
+   console.log('prodidpoo')
     const prodId = req.body.productId.toString()
   req.user.getCart()
   .then(cart => {
@@ -83,8 +91,11 @@ exports.postDeleteCartItem = (req, res, next) => {
     console.log(prodId, 'prodid')
 return res.json(result)
   })
-  .catch(err => console.log(err))
+  .catch(err => {
+    console.log(err);
+    res.status(500).send('Internal server error')
   }
+)}
 
 
 

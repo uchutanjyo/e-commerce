@@ -40,7 +40,11 @@ app.use((req, res, next) => {
       req.user = user;
       next();
     })
-    .catch(err => console.log(err));
+     .catch(err => {
+    console.log(err);
+    res.status(500).send('Internal server error')
+  })
+
 });
 
 app.use('/', productRoutes)

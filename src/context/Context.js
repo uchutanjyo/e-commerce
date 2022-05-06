@@ -18,6 +18,9 @@ const AppProvider = ({children}) => {
         const [redirect, setRedirect] = useState(false)
  
 
+
+
+         
    const cartUrl =
     'http://localhost:8001/cart'
 

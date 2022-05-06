@@ -7,29 +7,34 @@ import { getByPlaceholderText } from '@testing-library/react';
 
 const Products = () => {
 const productId = useParams();
-const { products, product, filtered, redirect, setRedirect, cart, setCart, getCart} = useGlobalContext()
+const { filtered, redirect, setRedirect, cart, setCart, getCart} = useGlobalContext()
     const [singleProductId, setSingleProductId] = useState([])
 
   const navigate = useNavigate();
 
     // get products for product details page
         useEffect(()=> {
+             let isMounted = true; 
             axios.get(`http://localhost:8001/products/${productId.productId}`)
             .then(res => {
-        return res
-           }).then(res => {
+              console.log(res.data.id)
+              if (isMounted) {
            setSingleProductId([res.data.id])  
-                return res
+           console.log(singleProductId)
+         isMounted = false
+                return res }
             })
             .catch(err =>{
                 console.log(err)
             })
         }, [productId.id])
 
+     
+
 // send post request to add item to cart, set redirect state to true.
     const handleSubmit =  e => {
     e.preventDefault();
-    setRedirect(true)
+
     let request = {method: 'POST',
             url: "http://localhost:8001/cart",
             headers: {
@@ -38,18 +43,24 @@ const { products, product, filtered, redirect, setRedirect, cart, setCart, getCa
             data: {
                productId: singleProductId[0]}}
             axios(request)
-                .then(res => {
-                return res
-                })   
-        .catch(err => console.log(err))};
+                .then(() => {
+                 
+                  return   setRedirect(true)
+    })   
+        .catch(err => console.log(err))
+ }
+  
 
         // redirects to Cart page based on whether redirect state is sett to true/false. redirect is then reset to false.
        useEffect(() => {
-            if (redirect) {
+         if (redirect) {
               navigate('/cart')
-              setRedirect(false)
-            }
-        }, [cart])
+               setRedirect(false)
+         }
+          
+          else {
+          console.log('red off')
+        }  }, [cart])
 
 const productDetails = filtered.filter((product) => {
 
