@@ -51,7 +51,6 @@ return (
 <Route path=":productId/productdetailspage" element={<ProductDetailsPage />}>
 </Route>
 
-
 </Routes>
 
 </BrowserRouter>
