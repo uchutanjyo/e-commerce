@@ -7,7 +7,7 @@ const FeaturedProducts = ({children}) => {
   return (
     <div className='featured-products'>
 <div className='left'>
-    <h1>Today's featured products!</h1>
+    <h1>Today's featured products</h1>
     <p>On the right, check out our featured product of the day. We would appreciate it very much if you bought one or more of this item, today. Thanks so much in advance!</p>
  <Link to="/Products" className='Navbar-link'>
 <button className='default-button'><h3>See all products</h3></button>
