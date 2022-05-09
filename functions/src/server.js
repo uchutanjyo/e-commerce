@@ -1,5 +1,4 @@
 const express = require('express');
-const serverless = require('serverless-http');
 const app = express();
 const cors = require('cors')
 const sequelize = require('./src/config/database')
@@ -26,7 +25,6 @@ const productRoutes = require('./routes/products')
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(`/.e-commerce/functions/server`);
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -74,7 +72,7 @@ app.listen(8001);
 .catch(err => console.log(err))
 // syncs models to database and creates tables
 
-module.exports.handler = serverless(app);
+
 
 // try {
 //      sequelize.authenticate();
