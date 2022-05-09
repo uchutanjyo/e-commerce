@@ -45,6 +45,10 @@ app.use((req, res, next) => {
 
 app.use('/', productRoutes)
  
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).send('Internal server error.')
+})
 
 sequelize
   .sync()
