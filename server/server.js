@@ -37,6 +37,8 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use(cors());
+
 app.use((req, res, next) => {
   User.findByPk(1)
     .then(user => {
