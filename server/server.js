@@ -24,6 +24,8 @@ Order.belongsToMany(Product,  {through: OrderItem})
 
 const productRoutes = require('./routes/products')
 
+const PORT = process.env.PORT || 8001;
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -67,15 +69,16 @@ sequelize
 //    return user.createCart()
 
 // })
-.then(cart => {
-app.listen(process.env.PORT || 8001)
+  .then(cart => {
+      app.listen(PORT, () => {
+        console.log(`App listening on port ${PORT}`);
+      });
 
-})
-.catch(err => console.log(err))
-// syncs models to database and creates tables
+    })
+    .catch(err => console.log(err))
 
-app.get('/', (req, res) => {
-      res.send('Hello from Express!')})
+// app.get('/', (req, res) => {
+//       res.send('Hello from Express!')})
 
 // try {
 //      sequelize.authenticate();
