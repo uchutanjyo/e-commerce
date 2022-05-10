@@ -5,6 +5,8 @@ const {
 
 const Product = require('../models/product');
 
+
+
 exports.getProducts = async (req, res, next) => {
 try{
  const data = await Product.findAll();

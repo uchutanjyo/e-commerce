@@ -67,13 +67,14 @@ sequelize
 
 // })
 .then(cart => {
-app.listen(8001);
+app.listen(process.env.PORT || 8001)
 
 })
 .catch(err => console.log(err))
 // syncs models to database and creates tables
 
-
+app.get('/', (req, res) => {
+      res.send('Hello from Express!')})
 
 // try {
 //      sequelize.authenticate();
