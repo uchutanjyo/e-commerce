@@ -14,7 +14,7 @@ const { products, product, filtered, redirect, setRedirect, cart, setCart, getCa
 
     // get products for product details page
         useEffect(()=> {
-            axios.get(`http://localhost:8001/products/${productId.productId}`)
+            axios.get(`https://the-indispensable.herokuapp.com/products/${productId.productId}`)
             .then(res => {
         return res
            }).then(res => {
@@ -31,7 +31,7 @@ const { products, product, filtered, redirect, setRedirect, cart, setCart, getCa
     e.preventDefault();
     setRedirect(true)
     let request = {method: 'POST',
-            url: "http://localhost:8001/cart",
+            url: "https://the-indispensable.herokuapp.com/cart",
             headers: {
                 'Content-Type': 'application/json'
             },

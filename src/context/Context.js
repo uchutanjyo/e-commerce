@@ -19,7 +19,7 @@ const AppProvider = ({children}) => {
  
 
    const cartUrl =
-    'http://localhost:8001/cart'
+    'https://the-indispensable.herokuapp.com/cart'
 
          
    const getCart = async () => {
@@ -44,7 +44,7 @@ const AppProvider = ({children}) => {
     
 
           const url =
-    'http://localhost:8001/products'
+    'https://the-indispensable.herokuapp.com/products'
   
         const getProducts =async () => {
         isLoading(true)
