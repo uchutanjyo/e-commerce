@@ -40,6 +40,6 @@ const ContactForm = ({children}) => {
   );
 };
 
-export default Contact;
+export default ContactForm;
 
 
