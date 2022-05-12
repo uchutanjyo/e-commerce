@@ -1,11 +1,11 @@
 
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { useGlobalContext } from '../context/Context';
 import Product from './Product'
 
 
 const ProductsContainer = ({children}) => {
-const {products, setProducts, searchTerm, loading,getProducts, filtered, setShow, handleClick} = useGlobalContext()
+const {loading, filtered} = useGlobalContext()
 
 
 

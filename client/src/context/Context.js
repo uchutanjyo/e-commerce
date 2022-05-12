@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, {useState, useCallback, useContext, useEffect} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 
 const AppContext = React.createContext();
 
@@ -81,7 +81,6 @@ let filtered  = products.map((item) => {
         getCart,
         redirect,
         setRedirect,
-        getCart,
         deleted, 
         setDeleted
         // handleClick

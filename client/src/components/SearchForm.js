@@ -3,7 +3,7 @@ import { useGlobalContext } from '../context/Context';
 
 
 const SearchForm = () => {
-    const {setSearchTerm, searchTerm, products, setProducts,filtered, oldProducts} = useGlobalContext()
+    const {setSearchTerm} = useGlobalContext()
 
         const searchValue = useRef('')
         // sets up reference with name searchValue . initial state is an empty array
