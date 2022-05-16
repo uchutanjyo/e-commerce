@@ -12,7 +12,7 @@ const {show, setShow, products, filtered} = useGlobalContext()
 
 <>
  <div className="categories-sidebar">
-     <h2>Categories</h2>
+     {/* <h2>Categories</h2>
    <ul>
      <li>Home</li>
     <li>Kitchen</li>
@@ -20,7 +20,8 @@ const {show, setShow, products, filtered} = useGlobalContext()
      <li>Electronics</li>
      <li>Food</li>
      <li>Misc</li>
-   </ul>
+   </ul> */}
+   {/* This functionality will be added soon */}
    </div>
 <div className='products-title'>
      <SearchForm></SearchForm>
