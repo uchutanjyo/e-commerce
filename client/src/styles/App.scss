@@ -159,6 +159,10 @@ color:rgb(243, 230, 230);
  margin-top: 5em;
 }
 
+.form-input {
+    width: 30em;
+}
+
 .contact-form {
 display: table; 
 border-collapse:separate; 
@@ -176,17 +180,22 @@ input {
     display: table-cell;
         margin-left: 1em;
          }
+         textarea {
+            display: table-cell;
+            margin-left: 1em;
+            height: 3em;
+            width: 34em
+
+         }
    button {
     display: table-cell;
    margin-top: 1em;
-   margin-left: 11em;
+   margin-left: 25em;
    width: 10em;
 }
 }
 
-.form-input {
-    width: 30em;
-}
+
 
 #name {
     height: 2em;
@@ -198,6 +207,11 @@ input {
 
 #message {
      padding: 0 0 20em 0;
+    
+
+}
+
+#msg-label {
 
 }
 

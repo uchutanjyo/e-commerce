@@ -15,12 +15,10 @@ if (loading) {
 return (
  <>
 
-    
  <div className='products'>
     <div className='products-container'>
 {filtered.map((product) => {
     const {id, title, description, imageUrl, price, category} = product;
-   
        return (
 <Product id={id} title={title} description={description} imageUrl={imageUrl} price={price} category={category}></Product>
 )}

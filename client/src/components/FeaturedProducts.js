@@ -1,9 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import  { Link } from 'react-router-dom';
+import { useGlobalContext } from '../context/Context';
 
 
 const FeaturedProducts = ({children}) => {
+  const {filtered} = useGlobalContext()
+
+
+  const [featuredProduct, setFeaturedProduct] = useState('')
+
+
+console.log(featuredProduct)
+
+//   const newFiltered = filtered.filter((product) => { 
+//     const randomId = Math.floor(Math.random() * filtered.length);
+// return randomId == product.id})
+
+//   useEffect(async ()=>  {
+//   const newProduct = filtered.filter((product) => { 
+//     const randomId = Math.floor(Math.random() * filtered.length);
+// return randomId == product.id})
+//  setFeaturedProduct(newProduct)
+// }, [])
+
   return (
     <div className='featured-products'>
 <div className='left'>
@@ -13,9 +33,16 @@ const FeaturedProducts = ({children}) => {
 <button className='default-button'><h3>See all products</h3></button>
  </Link>
 
-    
+      
 </div>
 <div className='right'>
+
+ <div><img src={featuredProduct.medImageUrl}/></div>
+
+    {/* const randomId = Math.floor(Math.random() * filtered.length) */}
+
+
+
     <img src="https://images.unsplash.com/photo-1648285618065-3d421fa03e03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1NHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"></img>
 
 </div>

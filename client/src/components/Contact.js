@@ -12,27 +12,39 @@ const ContactForm = ({children}) => {
         'template_u8jvcfm',
         form.current,
         'CNPOcX_lOqJC8MPax')
+         alert('Your email has been sent.')
+         form.current.reset()
         .then(result => {
           console.log(result)
+         
         }).catch(err => console.log(err))
     }
 
   return (
     <>
-    <div className='contact'>
+  <div className='contact'>
+    <div className='contact-form'>
 <h1>Contact us</h1>
 <h2>Inquiries? Please fill out your personal information and your question here and we'll get back to you ASAP.</h2>
 <form ref={form} className='contact'action="submit">
      <section>
     <label htmlFor="name">Name</label>
-    <input type="text" id='name' name="user_name"/>
-       <label htmlFor="name" >E-mail address</label>
-       <input type="text"  id='email' name="user_email" />
-       <label htmlFor="name"  name='message'>Reason for contacting:</label>
-    <textarea  rows="10" id='message' name="message"/>
-    <button action='submit' onClick={handleSubmit}>Submit</button>
+    <input type="text" id='name' name="user_name" className='form-input'/>
     </section>
+    <section>
+
+       <label htmlFor="name" >E-mail address</label>
+       <input type="text"  id='email' name="user_email" className='form-input'/>
+       </section>
+       <section>
+       <label htmlFor="name"  name='message' id='msg-label'>Reason for contacting:    </label>
+    <textarea  rows="10" id='message' name="message" className='form-input'/>
+
+    </section>
+        <button action='submit' onClick={handleSubmit}>Submit</button>
+
 </form>
+</div>
 </div>
 
 <div className='hidden'></div>
