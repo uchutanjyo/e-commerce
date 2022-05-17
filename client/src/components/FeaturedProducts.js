@@ -5,7 +5,7 @@ import { useGlobalContext } from '../context/Context';
 
 
 const FeaturedProducts = ({children}) => {
-  const {filtered} = useGlobalContext()
+  const {currentFiltered} = useGlobalContext()
 
 
   const [featuredProduct, setFeaturedProduct] = useState('')
@@ -13,16 +13,6 @@ const FeaturedProducts = ({children}) => {
 
 console.log(featuredProduct)
 
-//   const newFiltered = filtered.filter((product) => { 
-//     const randomId = Math.floor(Math.random() * filtered.length);
-// return randomId == product.id})
-
-//   useEffect(async ()=>  {
-//   const newProduct = filtered.filter((product) => { 
-//     const randomId = Math.floor(Math.random() * filtered.length);
-// return randomId == product.id})
-//  setFeaturedProduct(newProduct)
-// }, [])
 
   return (
     <div className='featured-products'>
@@ -39,7 +29,6 @@ console.log(featuredProduct)
 
  <div><img src={featuredProduct.medImageUrl}/></div>
 
-    {/* const randomId = Math.floor(Math.random() * filtered.length) */}
 
 
 

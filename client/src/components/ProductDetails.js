@@ -7,7 +7,7 @@ import { getByPlaceholderText } from '@testing-library/react';
 
 const Products = () => {
 const productId = useParams();
-const { products, product, filtered, redirect, setRedirect, cart, setCart, getCart} = useGlobalContext()
+const { products, currentFiltered, product, redirect, setRedirect, cart, setCart, getCart} = useGlobalContext()
     const [singleProductId, setSingleProductId] = useState([])
 
   const navigate = useNavigate();
@@ -51,7 +51,7 @@ const { products, product, filtered, redirect, setRedirect, cart, setCart, getCa
             }
         }, [cart])
 
-const productDetails = filtered.filter((product) => {
+const productDetails = currentFiltered.filter((product) => {
 
        return singleProductId == product.id
     })

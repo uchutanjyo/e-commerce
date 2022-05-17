@@ -5,7 +5,7 @@ import Product from './Product'
 
 
 const ProductsContainer = ({children}) => {
-const {loading, filtered} = useGlobalContext()
+const {loading, currentFiltered} = useGlobalContext()
 
 
 
@@ -17,7 +17,7 @@ return (
 
  <div className='products'>
     <div className='products-container'>
-{filtered.map((product) => {
+{currentFiltered.map((product) => {
     const {id, title, description, imageUrl, price, category} = product;
        return (
 <Product id={id} title={title} description={description} imageUrl={imageUrl} price={price} category={category}></Product>

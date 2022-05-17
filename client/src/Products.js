@@ -6,27 +6,38 @@ import SearchForm from './components/SearchForm';
 const Products = ({product}) => {
 
     const [productId, setProductId] = useState('')
-const {show, setShow, products, filtered} = useGlobalContext()
+const {show, setShow, products, currentFiltered, category, setCategory} = useGlobalContext()
+
+const categories = ['Kitchen', 'Home Decor', 'Books']
+
+const handleClick = (category) => {
+  console.log(category)
+  setCategory(category)
+
+}
 
   return (
 
 <>
+
  <div className="categories-sidebar">
-     {/* <h2>Categories</h2>
+ <h2>Categories</h2>
    <ul>
-     <li>Home</li>
-    <li>Kitchen</li>
-     <li>Music equipment</li>
-     <li>Electronics</li>
-     <li>Food</li>
-     <li>Misc</li>
-   </ul> */}
-   {/* This functionality will be added soon */}
+     <li>All</li>
+{categories.map((cat)=> {
+return <li onClick={() => handleClick(cat)}>{cat}</li>
+})}
+</ul>
+  
+
    </div>
 <div className='products-title'>
      <SearchForm></SearchForm>
     <h5>
-     {filtered.length} products found!</h5></div> 
+     {currentFiltered.length} products found!</h5>
+     * search function temporarily under construction!
+</div> 
+
      <ProductsContainer />
 </>
   );

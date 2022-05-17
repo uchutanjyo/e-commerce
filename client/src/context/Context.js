@@ -14,6 +14,12 @@ const AppProvider = ({children}) => {
 
         const [deleted, setDeleted] = useState(false)
         const [redirect, setRedirect] = useState(false)
+
+        const [category, setCategory] = useState('')
+
+        const [currentFiltered, setCurrentFiltered] = useState([])
+
+
  
    const cartUrl =
     'https://the-indispensable.herokuapp.com/cart'
@@ -58,12 +64,23 @@ const AppProvider = ({children}) => {
         }, [])
     
 
-let filtered  = products.map((item) => { 
+useEffect(() => {
+let filtered = products.map((item) => { 
+    
             const {title} = item;
             return {...item, title: title.toLowerCase()}})
             .filter((product)=> {
-    return product.title.includes(searchTerm.toLowerCase())  
+                if (category != '') {
+                    console.log(category)
+                    return product.category === category
+                }
+                else {
+    return product.title.includes(searchTerm.toLowerCase())  }
 })
+setCurrentFiltered(filtered)
+
+}, [products, category])
+
 // really bad workaround for an issue i was having. in order to make product search case-insensitive, i  mapped products array (state) to a new array, and converted the title property to lowercase.this new array is then filtered - a check is done against the searchTerm (what is typed in the search box) which is also converted to lowercase. the title of each product is then converted to uppercase later on rendering. 
 
     return<>
@@ -73,7 +90,6 @@ let filtered  = products.map((item) => {
         products,
         setSearchTerm,
         getProducts,
-        filtered,
         show,
         setShow,
         cart,
@@ -82,9 +98,10 @@ let filtered  = products.map((item) => {
         redirect,
         setRedirect,
         deleted, 
-        setDeleted
-        // handleClick
-
+        setDeleted,
+        category,
+        setCategory,
+        currentFiltered
     }}> {children}
     </AppContext.Provider>
     </>

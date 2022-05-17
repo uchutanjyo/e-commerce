@@ -423,7 +423,12 @@ overflow:hidden
     li {
 color: rgb(39, 12, 88);
 list-style-type:none;
-        
+font-size: 1.3em;
+margin-bottom:1em;
+cursor: pointer;
+    }
+    li:hover {
+        text-decoration: underline;
     }
 }
 

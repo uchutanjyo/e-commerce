@@ -602,6 +602,13 @@ p {
 .categories-sidebar li {
   color: #270c58;
   list-style-type: none;
+  font-size: 1.3em;
+  margin-bottom: 1em;
+  cursor: pointer;
+}
+
+.categories-sidebar li:hover {
+  text-decoration: underline;
 }
 
 .img {
