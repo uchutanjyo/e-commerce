@@ -4,14 +4,11 @@ import { useGlobalContext } from '../context/Context';
 import { useNavigate } from "react-router-dom";
  import axios from "axios";    
 
-
 const CartContents = ({children}) => {
 const {cart, deleted, setDeleted} = useGlobalContext()
     const [singleProductId, setSingleProductId] = useState([])
 
      const navigate = useNavigate();
-    
-
      
 const handleSubmit =  e => {
     e.preventDefault();
@@ -35,8 +32,6 @@ const handleSubmit =  e => {
               setDeleted(false)
             }
         }, [cart])
-
-        
 
 return (
 

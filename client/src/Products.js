@@ -11,9 +11,11 @@ const {show, setShow, products, currentFiltered, category, setCategory} = useGlo
 const categories = ['Kitchen', 'Home Decor', 'Books']
 
 const handleClick = (category) => {
-  console.log(category)
   setCategory(category)
+}
 
+const resetCategory = () => {
+  setCategory('')
 }
 
   return (
@@ -23,7 +25,7 @@ const handleClick = (category) => {
  <div className="categories-sidebar">
  <h2>Categories</h2>
    <ul>
-     <li>All</li>
+     <li onClick={resetCategory}>All</li>
 {categories.map((cat)=> {
 return <li onClick={() => handleClick(cat)}>{cat}</li>
 })}
@@ -35,7 +37,6 @@ return <li onClick={() => handleClick(cat)}>{cat}</li>
      <SearchForm></SearchForm>
     <h5>
      {currentFiltered.length} products found!</h5>
-     * search function temporarily under construction!
 </div> 
 
      <ProductsContainer />

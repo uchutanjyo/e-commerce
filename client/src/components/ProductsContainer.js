@@ -3,11 +3,8 @@ import React from 'react';
 import { useGlobalContext } from '../context/Context';
 import Product from './Product'
 
-
 const ProductsContainer = ({children}) => {
-const {loading, currentFiltered} = useGlobalContext()
-
-
+const {loading, currentFiltered, setCurrentFiltered, searchTerm} = useGlobalContext()
 
 if (loading) {
   return <div className='products'>Loading...</div>

@@ -143,6 +143,13 @@ color:rgb(243, 230, 230);
 .right {
     width: 50%;
     height: 70vh;
+    img {
+    border-radius: 50%;
+    height: 90%
+    }
+    img:hover {
+        opacity: 50%
+    }
     
 }
 
@@ -152,6 +159,7 @@ color:rgb(243, 230, 230);
       text-align: center;
       max-width: 80vw;
       height: 100%;
+      
 }
 
 // Contact

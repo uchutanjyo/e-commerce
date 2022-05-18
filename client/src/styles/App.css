@@ -161,6 +161,15 @@ p {
   height: 70vh;
 }
 
+.right img {
+  border-radius: 50%;
+  height: 90%;
+}
+
+.right img:hover {
+  opacity: 50%;
+}
+
 .featured-products {
   display: -webkit-box;
   display: -ms-flexbox;
