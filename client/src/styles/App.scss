@@ -9,6 +9,8 @@
     flex-direction: $direction
 }
 
+html {
+    min-height: 100%        }
 
 body {
     background-color: whitesmoke;
@@ -287,12 +289,14 @@ color:rgb(243, 230, 230);
     @include flexCenter(row);
     width: 100vw;
     height: 95vh;
+    margin-top: 7em;
+
 }
 
 .about-left {
     @include flexCenter(column);
+    height: 100%;
     width: 50%;
-    height: 40vh;
     padding: 1em;
     margin-left: 1em;
 background-color:rgba(45, 81, 100, 0.5);
@@ -301,7 +305,7 @@ border-radius: 1%;
       
     z-index: -1;
        img {
-        max-height: 30em;
+        max-height: 50em;
      animation: fadeinfast .4s;
     }
 }
@@ -313,9 +317,12 @@ border-radius: 1%;
 
 .about-right {
     width: 50%;
-    height: 70vh;
+    height: 100%;
     font-size: 1.6em;
     margin-top: 10em;
+    margin-bottom: 1em;
+    padding: .2em;
+
       h1 {
     color:rgb(0, 0, 0);
     }
@@ -454,6 +461,10 @@ cursor: pointer;
 
 
 // Product details page
+
+.details-wrapper {
+    @include flexCenter(column)
+}
 .product-details-main {
     display: flex;
 flex-direction: row;
@@ -468,10 +479,11 @@ align-items: center;
     margin-left: 1em;
    margin-top:5em;
     position: fixed;
-   width: 13%;
+   width: 17%;
     height: 80%;
     border: none;
     font-size: 1.5em;
+    background-color: bisque;
    
 }
 
@@ -594,11 +606,14 @@ flex-direction: column;
    // Media queries
     // Smartphones
     @media screen and (max-width: 1060px) {
+      
         .nav-title {
             display: none
         }
         .Nav  {
             height: 1.5em;
+            max-width: 100vw;;
+
         }
         .Nav a {
      
@@ -617,7 +632,7 @@ flex-direction: column;
         .top-header {
 
             background-image:url('');
-            background-color: rgb(23, 139, 139);
+            background-color:rgba(45, 81, 100, 0.8);
     
         }
 
@@ -665,17 +680,19 @@ margin-top: 1em;
             display: none;
             width: 0% !important;
         }
-
+        .main-bottom {
+            height: auto;;
+        }
         .contact {
             width: 100vw;
-            height: auto;
+            height: 100vh;
             
         }
         .contact-form {
             display: flex; 
             flex-direction: column;
             align-items: center;
-            margin-top: 0em;
+            margin-top: -4em;
             h1 {
                 margin-bottom: 0em
 
@@ -702,6 +719,7 @@ margin-top: 1em;
             textarea {
                 margin: 1em;
                 width: 90vw;
+                height: 0em;
             }
          
             button {
@@ -715,27 +733,38 @@ margin-top: 1em;
         // About section
         .about {
             flex-direction: column;
+            width: 80vw;
+            
         }
 
-        .about-left {
-            width: 80%;
-            height: 40%;
-            margin-top: 17em;
-            background-color: white;
-            margin-left: 0em;
-            padding: .2em;
-
-            img {
-                height: 90%;
-            }
-           
-        }
+  
 
         .about-right {
-            width: 100vw;
-                margin-top: 5em;
-                @include flexCenter(column)
+            background-color:rgba(45, 81, 100, 0.8);
 
+            width: 90vw;
+            margin-top: 3em;
+            padding-top: 2em;
+            padding-bottom: 1em;
+            @include flexCenter(column);
+            border: 1px solid;
+            margin-bottom: 1em;
+
+        }
+        .about-left {
+            width: 100vw;
+                margin-bottom: -2em;
+                @include flexCenter(column);
+                height: 40%;
+                margin-top: 17em;
+                margin-left: 0em;
+                padding: .2em;
+    
+    
+                img {
+                    height: 90%;
+                }
+               
         }
         .mission {
             width: 80%;
@@ -745,9 +774,85 @@ margin-top: 1em;
         }
 
         .footer {
-           display: none;
-
         }
+
+// Products section
+.products-wrapper {
+    @include flexCenter(column)
+}
+.products-title {
+margin: -1em;
+margin-bottom: -1em;
+}
+
+.categories-sidebar {
+    
+    width: 100%;
+    height: 10%;
+    position: relative;
+    margin-top: 5em;
+
+    justify-content: center;  
+    h2 {
+        margin-bottom: -.2em;
+    }
+  ul {
+        display: flex;
+        flex-direction: row;
+        li {
+            margin-right: 1em;
+        }
+    }
+}
+    .products-title {
+        width: 95%;
+        margin-bottom: -6em;
+
+    }
+
+
+.search-form {
+    width: 90%;
+    margin-right: 0em;
+    margin-bottom: 1em;
+
+    input {
+        width: 80%
+    }
+  
+}
+
+.products {
+    width: 100%
+}
+.product {
+    font-size: 70%
+}
+}
+
+// Product details - mobile
+.product-details-main {
+flex-direction: column;
+
+}
+
+.product-details {
+        margin-left: 0%;
+        height: 30em;
+        h2 {
+            text-align: center;
+        }
+    
+}
+
+.product-details-left-sidebar {
+    position: relative;
+    margin-left: 0em;
+    margin-top:4em;
+    margin-bottom:-6em;
+
+    width: 50%;
+     height: 30%;
 }
 
 @media screen and (min-width: 540px) and (max-width: 1544px) {

@@ -8,6 +8,7 @@ const Home = () => {
 
   return (
     <>
+
   <div className='main-top'>
     <TopHeader></TopHeader>
  </div>
@@ -20,6 +21,7 @@ const Home = () => {
    <Contact></Contact>
 </div>
 <Footer></Footer>
+
 
     </>
   );

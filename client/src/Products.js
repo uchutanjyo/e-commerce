@@ -21,7 +21,7 @@ const resetCategory = () => {
   return (
 
 <>
-
+<div className='products-wrapper'>
  <div className="categories-sidebar">
  <h2>Categories</h2>
    <ul>
@@ -34,12 +34,12 @@ return <li onClick={() => handleClick(cat)}>{cat}</li>
 
    </div>
 <div className='products-title'>
-     <SearchForm></SearchForm>
+     <SearchForm/>
     <h5>
      {currentFiltered.length} products found!</h5>
 </div> 
-
      <ProductsContainer />
+     </div>
 </>
   );
 };

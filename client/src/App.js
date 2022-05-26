@@ -21,6 +21,7 @@ const App = () => {
 
 return (
     <>
+      
         <BrowserRouter>
 
         <nav className='Nav'>
@@ -34,7 +35,7 @@ return (
         </section>
         </nav>
      
-    
+  
     <Routes>
 <Route  path="/" element={<Home />} >
 </Route>
@@ -54,6 +55,7 @@ return (
 </Routes>
 
 </BrowserRouter>
+
 </>
 )
 };
