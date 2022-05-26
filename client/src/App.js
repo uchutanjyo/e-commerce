@@ -29,7 +29,7 @@ return (
                      <Link to="/About" className='Navbar-link'>About</Link>
                      <Link to="/Products" className='Navbar-link'>Products</Link>
         <section className='cart-icons'>
-                    <Link to="/Cart" className='Navbar-link'>Cart</Link>
+                    <Link to="/Cart" className='Navbar-link' id="cart">Cart</Link>
 
         </section>
         </nav>

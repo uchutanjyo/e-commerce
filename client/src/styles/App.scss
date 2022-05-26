@@ -20,12 +20,12 @@ body {
 
 // buttons
 .default-button {
-    font-family: 'Chakra Petch',sans-serif;
     border-radius: 5%;
     color: rgb(6, 6, 6);
     padding: 1.1em;
-    margin-top: 5em;
     cursor: pointer;
+    font-weight: bold;
+
 }
 
 .Nav {
@@ -114,7 +114,17 @@ p {
     }
 }
  
+.hidden-mountain {
+    @include flexCenter(column);
+    display: none;
+    letter-spacing: .2em;
+    img {
+        width: 50%;
+        opacity: 70%;
+        border-radius: 50%
 
+    }
+}
 
 
 .left {
@@ -124,11 +134,6 @@ p {
     padding: 1em;
     margin-left: 1em;
           
-
-    h1 {
-    color:rgb(253, 247, 247);
-
-    }
 }
 
 
@@ -141,7 +146,6 @@ color:rgb(243, 230, 230);
 }
 
 .right {
-    width: 50%;
     height: 70vh;
     img {
     border-radius: 50%;
@@ -585,7 +589,190 @@ flex-direction: column;
                 max-height: 40%;
                 animation: fadein 2s;
       }
+  
+}
+   // Media queries
+    // Smartphones
+    @media screen and (max-width: 1060px) {
+        .nav-title {
+            display: none
+        }
+        .Nav  {
+            height: 1.5em;
+        }
+        .Nav a {
      
+            margin-right: 2em;
+            font-size: 1.2em
+
+        }
+
+        .cart-icons {
+        }
+
+        .main-top {
+            justify-content: center;
+        }
+
+        .top-header {
+
+            background-image:url('');
+            background-color: rgb(23, 139, 139);
+    
+        }
+
+        .hidden-mountain {
+            display: flex;
+        }
+        .left {
+width: 100vw;
+height:100vh;
+margin-left: 0em;
+
+
+
+    h1 {
+margin-top: 1em;
+    }
+    button {
+        display: flex;
+        align-items: center;
+        height: 1em;
+        font-size: 1em;
+        margin-top: 1em;
+        padding: 1.3em;
+
+    }
+    p {
+        padding: 1em;
+
+    }
+        }
+
+        #featured-right {
+            height: 30%
+
+        }
+
+        .featured-products {
+            flex-direction: column;
+        }
+
+            
+        
+
+        #empty-right {
+            display: none;
+            width: 0% !important;
+        }
+
+        .contact {
+            width: 100vw;
+            height: auto;
+            
+        }
+        .contact-form {
+            display: flex; 
+            flex-direction: column;
+            align-items: center;
+            margin-top: 0em;
+            h1 {
+                margin-bottom: 0em
+
+            }
+            h2 {
+                padding: 1em;
+                margin-bottom: -3em;
+                font-size: 90%;
+            }
+            section {
+                display: flex;
+                flex-direction: column;
+
+            }
+            label {
+                padding: 0em;
+                margin-left: 1em;
+            }
+            input {
+                width: 90vw  ;
+                margin: 1em;
+
+            }
+            textarea {
+                margin: 1em;
+                width: 90vw;
+            }
+         
+            button {
+                margin-left: 5em;
+                width: 5em;
+            }
+
+        }
+      
+
+        // About section
+        .about {
+            flex-direction: column;
+        }
+
+        .about-left {
+            width: 80%;
+            height: 40%;
+            margin-top: 17em;
+            background-color: white;
+            margin-left: 0em;
+            padding: .2em;
+
+            img {
+                height: 90%;
+            }
+           
+        }
+
+        .about-right {
+            width: 100vw;
+                margin-top: 5em;
+                @include flexCenter(column)
+
+        }
+        .mission {
+            width: 80%;
+            padding-left: .5em;
+            padding-right: .5em;
+            height: auto;
+        }
+
+        .footer {
+           display: none;
+
+        }
 }
 
+@media screen and (min-width: 540px) and (max-width: 1544px) {
+.project-image {
+    max-width: 100%;
+      height: 25em;
+      padding-bottom: 2em;
+       padding-top: 2em;
+   img {
+       height: 20em;
+    
+   }
+}
+}
 
+.project-actual-info{
+    flex-direction: column;
+    width: 100%;
+    font-size: 1em;
+}
+
+ @media all and (min-width: 900px) {
+        &.nav-item:hover {
+ opacity: 0.7;
+        
+        }
+
+    }
