@@ -48,7 +48,7 @@ return (
     <div className="cart-item-left">
     <h2>{title}</h2>
      <h4>Quantity: {cartItem.quantity}</h4>
-     <button id={id} onClick={handleSubmit} className="default-button">Delete from cart</button>
+     <button id={id} onClick={handleSubmit} className="default-button">Remove</button>
      </div> 
      
       <div className="cart-item-right">

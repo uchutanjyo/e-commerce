@@ -6,14 +6,13 @@ const TopHeader = ({children}) => {
   return (
 
     <div className='top-header'>
-
-<div className='left' >
+<div className='left'  >
     <div className="hidden-mountain">
-      <h2>The Indispensable.</h2>
+      <h1>The Indispensable.</h1>
 <img src={bgsmall}/>
 
     </div>
-    <h1>Our store stays stocked with stuff you definitely can't live without.</h1>
+    <h1 id='ourstore'>Our store stays stocked with stuff you definitely can't live without.</h1>
     <div className='home-header'>For decades, we've supplied the world with the most indispensable products in existence.</div>
 
 </div>

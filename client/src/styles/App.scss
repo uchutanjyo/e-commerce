@@ -116,6 +116,9 @@ p {
     }
 }
  
+#ourstore {
+    color: white;
+}
 .hidden-mountain {
     @include flexCenter(column);
     display: none;
@@ -288,44 +291,41 @@ color:rgb(243, 230, 230);
 .about {
     @include flexCenter(row);
     width: 100vw;
-    height: 95vh;
+    height: 85vh;
     margin-top: 7em;
 
 }
 
 .about-left {
     @include flexCenter(column);
-    height: 100%;
+    height: 50%;
     width: 50%;
     padding: 1em;
     margin-left: 1em;
-background-color:rgba(45, 81, 100, 0.5);
 border-radius: 1%;
-    animation: fadeinfast .6s;
-      
+    animation: fadeinfast 1s;
+    background-color:rgba(45, 81, 100, 0.3);
+
     z-index: -1;
        img {
-        max-height: 50em;
-     animation: fadeinfast .4s;
+        max-height: 35em;
+     animation: fadeinfast 1s;
     }
 }
 
 @keyframes fadeinfast {
     from { opacity: 0.2; }
-    to   { opacity: .7; }
+    to   { opacity: 1; }
 }
 
 .about-right {
-    width: 50%;
-    height: 100%;
+    @include flexCenter(column);
+    width: 40%;
     font-size: 1.6em;
-    margin-top: 10em;
+    margin-top: 5em;
     margin-bottom: 1em;
+    margin-left: 1em;
     padding: .2em;
-
-      h1 {
-    color:rgb(0, 0, 0);
-    }
 }
 
 .mission {
@@ -475,15 +475,15 @@ align-items: center;
 
 
 .product-details-left-sidebar {
-    @include flexCenter(column);
+    left: 0;
+    top: 50;
     margin-left: 1em;
-   margin-top:5em;
+   margin-top:12em;
     position: fixed;
    width: 17%;
     height: 80%;
     border: none;
     font-size: 1.5em;
-    background-color: bisque;
    
 }
 
@@ -625,6 +625,11 @@ flex-direction: column;
         .cart-icons {
         }
 
+        // home
+        .home-header {
+            max-width: 70%;
+        }
+
         .main-top {
             justify-content: center;
         }
@@ -733,7 +738,6 @@ margin-top: 1em;
         // About section
         .about {
             flex-direction: column;
-            width: 80vw;
             
         }
 
@@ -741,7 +745,7 @@ margin-top: 1em;
 
         .about-right {
             background-color:rgba(45, 81, 100, 0.8);
-
+            height: auto;
             width: 90vw;
             margin-top: 3em;
             padding-top: 2em;
@@ -749,6 +753,8 @@ margin-top: 1em;
             @include flexCenter(column);
             border: 1px solid;
             margin-bottom: 1em;
+            margin-left: 0em;
+
 
         }
         .about-left {
@@ -777,6 +783,7 @@ margin-top: 1em;
         }
 
 // Products section
+
 .products-wrapper {
     @include flexCenter(column)
 }
@@ -826,58 +833,86 @@ margin-bottom: -1em;
     width: 100%
 }
 .product {
-    font-size: 70%
-}
+    font-size: 70%;
+    min-height: 200px;
+
 }
 
+
 // Product details - mobile
+
+.details-wrapper {
+    @include flexCenter(column)
+}
+
 .product-details-main {
 flex-direction: column;
+align-items: center;
+justify-content: center;
+width: 50vw; 
+margin-top: -5em
 
 }
 
 .product-details {
         margin-left: 0%;
         height: 30em;
+        width: 80vw;
+       
         h2 {
             text-align: center;
+            border: 1px solid
         }
-    
 }
+
 
 .product-details-left-sidebar {
     position: relative;
+
     margin-left: 0em;
     margin-top:4em;
-    margin-bottom:-6em;
+    margin-bottom:-4em;
 
-    width: 50%;
-     height: 30%;
-}
-
-@media screen and (min-width: 540px) and (max-width: 1544px) {
-.project-image {
-    max-width: 100%;
-      height: 25em;
-      padding-bottom: 2em;
-       padding-top: 2em;
-   img {
-       height: 20em;
-    
-   }
-}
-}
-
-.project-actual-info{
-    flex-direction: column;
     width: 100%;
-    font-size: 1em;
+     height: 40%;
 }
 
- @media all and (min-width: 900px) {
-        &.nav-item:hover {
- opacity: 0.7;
-        
-        }
+.product-details-right-sidebar {
+
+    width: 95%;
+    margin-left: 0em;
+    margin-top: 5em;
+button {
+    margin-top: -.2em
+}
+
+
+}
+    
+
+// Cart
+.cart-item {
+    width: 80vw;
+    button {
+        padding: .5em;
 
     }
+}
+
+.cart-item-left {
+h4 {
+    margin-bottom: 1em;
+}
+}
+.cart-item-right {
+    @include flexCenter(column);
+    width: 50%;
+    animation: fadein 1s;
+      img {
+                max-width: 80%;
+                max-height: 80%;
+                animation: fadein 2s;
+      }
+  
+}
+}
