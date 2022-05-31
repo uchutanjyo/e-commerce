@@ -12,7 +12,6 @@ const {cart, deleted, setDeleted} = useGlobalContext()
      
 const handleSubmit =  e => {
     e.preventDefault();
-    setDeleted(true)
     const productId = e.target.id;
     console.log(productId)
     let request = {method: 'POST',
@@ -22,8 +21,13 @@ const handleSubmit =  e => {
             },
             data: {
                productId: productId }}
-              
-            axios(request)
+               axios(request)
+
+              .then ((res)=> {
+                setDeleted(true)
+                return res
+              })
+          
         .catch(err => console.log(err))};
 
      useEffect(() => {
