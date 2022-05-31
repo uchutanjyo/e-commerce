@@ -37,7 +37,9 @@ const AppProvider = ({children}) => {
         })}
 
            useEffect(()=> {
-            getCart()
+             if (cart != []) {
+              getCart()
+             }
         }, [redirect]) 
 
          useEffect(()=> {

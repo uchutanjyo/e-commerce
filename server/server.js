@@ -67,10 +67,10 @@ sequelize
     }
     return user;
   })
-// .then(user => {
-//    return user.createCart()
+.then(user => {
+   return user.createCart()
 
-// })
+})
   .then(cart => {
       app.listen(PORT, () => {
         console.log(`App listening on port ${PORT}`);

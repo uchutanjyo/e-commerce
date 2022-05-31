@@ -29,27 +29,30 @@ const { products, currentFiltered, product, redirect, setRedirect, cart, setCart
 // send post request to add item to cart, set redirect state to true.
     const handleSubmit =  e => {
     e.preventDefault();
-    setRedirect(true)
-    let request = {method: 'POST',
-            url: "https://the-indispensable.herokuapp.com/cart",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            data: {
-               productId: singleProductId[0]}}
-            axios(request)
+      let request = {method: 'POST',
+      url: "https://the-indispensable.herokuapp.com/cart",
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      data: {
+         productId: singleProductId[0]}}
+
+      axios(request) 
+    
+   
                 .then(res => {
+                  setRedirect(true);
                 return res
                 })   
         .catch(err => console.log(err))};
 
         // redirects to Cart page based on whether redirect state is sett to true/false. redirect is then reset to false.
        useEffect(() => {
-            if (redirect) {
+            if (redirect && (cart != [])) {
               navigate('/cart')
               setRedirect(false)
             }
-        }, [cart])
+        }, [redirect])
 
 const productDetails = currentFiltered.filter((product) => {
 
