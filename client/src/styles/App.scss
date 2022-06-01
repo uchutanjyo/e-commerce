@@ -168,12 +168,14 @@ color:rgb(243, 230, 230);
       text-align: center;
       max-width: 80vw;
       height: 100%;
-      
+      background-color: rgb(252, 247, 247);
+
 }
 
 // Contact
 .contact {
  margin-top: 5em;
+ height: 100%;
 }
 
 .form-input {
@@ -256,7 +258,7 @@ input {
 background-color:rgba(45, 81, 100, 0.8);
 color:rgb(243, 230, 230);
     min-width: 100vw;
-    height: 100vh;
+    height: 100%;
     z-index: 1;
     @include flexCenter(row);
     h1  {
@@ -605,6 +607,60 @@ flex-direction: column;
 }
    // Media queries
     // Smartphones
+    @media screen and (max-height: 700px) {
+        .main-top {
+            background-color: red;;
+            @include flexCenter(column);
+            margin-top: 3em;
+            margin-bottom: 3em;
+            
+            
+        }
+        .top-header {
+            
+        }
+        #ourstore {
+            font-size: 1.5em;
+        }
+        .featured-products {
+            height: 100vh;
+            font-size: 1em;
+            
+
+            h1 {
+                font-size: 1.5em;
+                margin-bottom: -1em;
+
+            }
+        }
+        .left {
+            margin-top: -5em;
+        }
+        .main-center {
+            margin-top: 4em;
+    background-color: rgb(252, 247, 247);
+
+
+        }
+        .footer {
+display: none        }
+
+.contact-form {
+    h1 {
+
+    }
+}
+.contact {
+
+}
+
+.main-bottom {
+    background-color:rgba(45, 81, 100, 1);
+
+}
+    }
+
+    
     @media screen and (max-width: 1060px) {
       
         .nav-title {
@@ -686,18 +742,21 @@ margin-top: 1em;
             width: 0% !important;
         }
         .main-bottom {
-            height: auto;;
+            background-color:rgba(45, 81, 100, 1);
+
         }
         .contact {
             width: 100vw;
             height: 100vh;
+            background-color:rgba(45, 81, 100, 1);
+            
             
         }
         .contact-form {
             display: flex; 
             flex-direction: column;
             align-items: center;
-            margin-top: -4em;
+            margin-top: 4em;
             h1 {
                 margin-bottom: 0em
 
@@ -780,6 +839,8 @@ margin-top: 1em;
         }
 
         .footer {
+            display: none
+
         }
 
 // Products section

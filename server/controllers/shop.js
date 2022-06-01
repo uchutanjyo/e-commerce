@@ -6,7 +6,6 @@ const {
 const Product = require('../models/product');
 
 
-
 exports.getProducts = async (req, res, next) => {
 try{
  const data = await Product.findAll();
@@ -28,6 +27,7 @@ exports.getProduct = async (req, res, next) => {
 
 exports.getCart = async (req, res, next) => {
   try {
+
     const cart = await req.user.getCart();
     const data = await cart.getProducts();
     res.json(data)
@@ -38,7 +38,7 @@ exports.getCart = async (req, res, next) => {
 
 exports.postCart = async (req, res, next) => {
   try {
-    const {
+ const {
       productId
     } = req.body;
     const cart = await req.user.getCart();
@@ -62,15 +62,21 @@ exports.postCart = async (req, res, next) => {
   }
 };
 
-// carrying on with async/await
 exports.postDeleteCartItem = async (req, res, next) => {
   try {
+
     const {
       productId
     } = req.body;
     const cart = await req.user.getCart();
     const products = await cart.getProducts();
-    const result = await products[0].cartItem.destroy();
+    const filteredProd = await products.filter((wantToDelete) => {
+      return wantToDelete.dataValues.id == productId
+    })
+    console.log('OK', filteredProd[0].cartItem)
+    const result = await filteredProd[0].cartItem.destroy();
+    // products[0].cartItem
+    console.log('result' , result)
     res.json(result);
   } catch (error) {
     next(error);
@@ -82,7 +88,6 @@ exports.postOrder = async (req, res, next) => {
     const cart = await req.user.getCart();
     const products = await cart.getProducts();
     const order = await req.user.createOrder();
-    // spread syntax makes it a little less readable but a lot more concise... trade off lol
     const orderProducts = products.map(product => ({
       ...product,
       orderItem: {

@@ -1,6 +1,9 @@
 require('dotenv').config();
 const express = require('express');
 
+
+const winston = require('winston')
+
 const app = express();
 const cors = require('cors')
 const sequelize = require('./config/database')
@@ -24,7 +27,9 @@ Order.belongsToMany(Product,  {through: OrderItem})
 
 const productRoutes = require('./routes/products')
 
-const PORT = process.env.PORT || 8001;
+const PORT=  process.env.PORT || 4000;
+
+
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -45,6 +50,7 @@ app.use((req, res, next) => {
       req.user = user;
       next();
     })
+
     .catch(err => console.log(err));
 });
 
@@ -88,3 +94,5 @@ sequelize
 // } catch (error) {
 //     console.error('Unable to connect to the database:', error);
 // }
+
+

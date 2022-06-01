@@ -213,10 +213,12 @@ p {
   text-align: center;
   max-width: 80vw;
   height: 100%;
+  background-color: #fcf7f7;
 }
 
 .contact {
   margin-top: 5em;
+  height: 100%;
 }
 
 .form-input {
@@ -318,7 +320,7 @@ p {
   background-color: rgba(45, 81, 100, 0.8);
   color: #f3e6e6;
   min-width: 100vw;
-  height: 100vh;
+  height: 100%;
   z-index: 1;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -890,6 +892,51 @@ p {
           animation: fadein 2s;
 }
 
+@media screen and (max-height: 700px) {
+  .main-top {
+    background-color: red;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 3em;
+    margin-bottom: 3em;
+  }
+  #ourstore {
+    font-size: 1.5em;
+  }
+  .featured-products {
+    height: 100vh;
+    font-size: 1em;
+  }
+  .featured-products h1 {
+    font-size: 1.5em;
+    margin-bottom: -1em;
+  }
+  .left {
+    margin-top: -5em;
+  }
+  .main-center {
+    margin-top: 4em;
+    background-color: #fcf7f7;
+  }
+  .footer {
+    display: none;
+  }
+  .main-bottom {
+    background-color: #2d5164;
+  }
+}
+
 @media screen and (max-width: 1060px) {
   .nav-title {
     display: none;
@@ -956,11 +1003,12 @@ p {
     width: 0% !important;
   }
   .main-bottom {
-    height: auto;
+    background-color: #2d5164;
   }
   .contact {
     width: 100vw;
     height: 100vh;
+    background-color: #2d5164;
   }
   .contact-form {
     display: -webkit-box;
@@ -973,7 +1021,7 @@ p {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin-top: -4em;
+    margin-top: 4em;
   }
   .contact-form h1 {
     margin-bottom: 0em;
@@ -1068,6 +1116,9 @@ p {
     padding-left: .5em;
     padding-right: .5em;
     height: auto;
+  }
+  .footer {
+    display: none;
   }
   .products-wrapper {
     display: -webkit-box;

@@ -12,6 +12,7 @@ const {cart, deleted, setDeleted} = useGlobalContext()
      
 const handleSubmit =  e => {
     e.preventDefault();
+    console.log(e.target)
     const productId = e.target.id;
     console.log(productId)
     let request = {method: 'POST',
@@ -22,7 +23,6 @@ const handleSubmit =  e => {
             data: {
                productId: productId }}
                axios(request)
-
               .then ((res)=> {
                 setDeleted(true)
                 return res
