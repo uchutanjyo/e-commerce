@@ -30,7 +30,7 @@ const { products, currentFiltered, product, redirect, setRedirect, cart, setCart
     const handleSubmit =  e => {
     e.preventDefault();
       let request = {method: 'POST',
-      url: "https://the-indispensable.herokuapp.com/cart",
+      url: "https://theindispensable.herokuapp.com/cart",
       headers: {
           'Content-Type': 'application/json'
       },

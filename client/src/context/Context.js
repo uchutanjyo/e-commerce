@@ -22,7 +22,7 @@ const AppProvider = ({children}) => {
 
  
    const cartUrl =
-    'https://the-indispensable.herokuapp.com/cart'
+    'https://theindispensable.herokuapp.com/cart'
 
          
    const getCart = async () => {
@@ -47,7 +47,7 @@ const AppProvider = ({children}) => {
         }, [deleted]) 
 
           const url =
-    'https://the-indispensable.herokuapp.com/products'
+    'https://theindispensable.herokuapp.com/products'
   
         const getProducts =async () => {
         isLoading(true)
