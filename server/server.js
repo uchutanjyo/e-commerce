@@ -3,7 +3,7 @@ const express = require('express');
 
 
 const winston = require('winston')
-
+console.log('ok')
 const app = express();
 const cors = require('cors')
 const sequelize = require('./config/database')
@@ -27,8 +27,7 @@ Order.belongsToMany(Product,  {through: OrderItem})
 
 const productRoutes = require('./routes/products')
 
-const PORT=  process.env.PORT || 4000;
-
+const PORT= process.env.PORT
 
 
 app.use(express.urlencoded({ extended: false }));
@@ -78,7 +77,7 @@ sequelize
 
 })
   .then(cart => {
-      app.listen(PORT, () => {
+      app.listen(PORT == 'NaN' ? 4000 : PORT, () => {
         console.log(`App listening on port ${PORT}`);
       });
 

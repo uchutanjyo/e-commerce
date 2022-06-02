@@ -16,7 +16,7 @@ const handleSubmit =  e => {
     const productId = e.target.id;
     console.log(productId)
     let request = {method: 'POST',
-            url: "https://theindispensable.herokuapp.com/delete-cart",
+            url: "http://localhost:4000/delete-cart",
             headers: {
                 'Content-Type': 'application/json'
             },

@@ -22,7 +22,7 @@ const AppProvider = ({children}) => {
 
  
    const cartUrl =
-    'https://theindispensable.herokuapp.com/cart'
+   'http://localhost:4000/cart'
 
          
    const getCart = async () => {
@@ -47,12 +47,15 @@ const AppProvider = ({children}) => {
         }, [deleted]) 
 
           const url =
-    'https://theindispensable.herokuapp.com/products'
-  
+        'http://localhost:4000/products'
+
+
         const getProducts =async () => {
         isLoading(true)
         try {
+
         const data = await axios.get(url);
+
         const newProducts = data.data
         setProducts(newProducts)
         isLoading(false)
