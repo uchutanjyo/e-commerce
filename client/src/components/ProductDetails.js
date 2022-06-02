@@ -17,9 +17,8 @@ const { products, currentFiltered, product, redirect, setRedirect, cart, setCart
     // get products for product details page
         useEffect(()=> {
             axios.get`https://theindispensable.herokuapp.com/products/${productId.productId}`
-            .then(res => {
-        return res
-           }).then(res => {
+           .then(res => {
+             console.log(res)
            setSingleProductId([res.data.id])  
                 return res
             })
