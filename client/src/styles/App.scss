@@ -609,7 +609,7 @@ flex-direction: column;
     // Smartphones
     @media screen and (max-height: 700px) {
         .main-top {
-            background-color: red;;
+            background-color:rgba(45, 81, 100, 0.8);
             @include flexCenter(column);
             margin-top: 3em;
             margin-bottom: 3em;
@@ -817,6 +817,7 @@ margin-top: 1em;
 
         }
         .about-left {
+            display: none;
             width: 100vw;
                 margin-bottom: -2em;
                 @include flexCenter(column);
