@@ -19,7 +19,9 @@ try{
 
 exports.getProduct = async (req, res, next) => {
   try {
+    console.log(req)
     const data = await Product.findByPk(req.params.productId);
+    console.log(data)
     res.json(data)
   } catch (error) {
     next(error);
