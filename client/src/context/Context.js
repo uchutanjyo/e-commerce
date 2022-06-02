@@ -22,7 +22,8 @@ const AppProvider = ({children}) => {
 
  
    const cartUrl =
-   'http://localhost:4000/cart'
+   "https://theindispensable.herokuapp.com/cart"
+  //  'http://localhost:4000/cart'
 
          
    const getCart = async () => {
@@ -47,7 +48,8 @@ const AppProvider = ({children}) => {
         }, [deleted]) 
 
           const url =
-        'http://localhost:4000/products'
+         'https://theindispensable.herokuapp.com/products'
+        // 'http://localhost:4000/products'
 
 
         const getProducts =async () => {
