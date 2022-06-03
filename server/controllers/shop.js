@@ -9,7 +9,7 @@ const Product = require('../models/product');
 exports.getProducts = async (req, res, next) => {
 try{
  const data = await Product.findAll();
- console.log('asdf')
+ console.log('asdAfFFF')
  res.json(data);
 }
  catch (error) {

@@ -19,6 +19,8 @@ const AppProvider = ({children}) => {
 
         const [currentFiltered, setCurrentFiltered] = useState([])
 
+        console.log(process.env.NODE_ENV)
+const appUrl = process.env.NODE_ENV === 'development' ? 'http://localhost:4000' : 'https://theindispensable.herokuapp.com'
 
  
    const cartUrl =
@@ -28,7 +30,7 @@ const AppProvider = ({children}) => {
          
    const getCart = async () => {
         isLoading(true)
-        const data = await axios.get(cartUrl);
+        const data = await axios.get(`${appUrl}/cart`);
         const newCart = data.data
             setCart(newCart)
         isLoading(false)
@@ -47,8 +49,9 @@ const AppProvider = ({children}) => {
             getCart()
         }, [deleted]) 
 
-          const url =
-         'https://theindispensable.herokuapp.com/products'
+          // const url =
+          // `${appUrl}/products`
+        //  'https://theindispensable.herokuapp.com/products'
         // 'http://localhost:4000/products'
 
 
@@ -56,7 +59,7 @@ const AppProvider = ({children}) => {
         isLoading(true)
         try {
 
-        const data = await axios.get(url);
+        const data = await axios.get(`${appUrl}/products`);
 
         const newProducts = data.data
         setProducts(newProducts)
@@ -114,7 +117,8 @@ setCurrentFiltered(filtered)
         category,
         setCategory,
         currentFiltered,
-        setCurrentFiltered
+        setCurrentFiltered,
+        appUrl
     }}> {children}
     </AppContext.Provider>
     </>

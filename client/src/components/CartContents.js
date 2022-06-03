@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
  import axios from "axios";    
 
 const CartContents = ({children}) => {
-const {cart, deleted, setDeleted} = useGlobalContext()
+const {appUrl, cart, deleted, setDeleted} = useGlobalContext()
     const [singleProductId, setSingleProductId] = useState([])
 
      const navigate = useNavigate();
@@ -16,7 +16,7 @@ const handleSubmit =  e => {
     const productId = e.target.id;
     console.log(productId)
     let request = {method: 'POST',
-            url: "https://theindispensable.herokuapp.com/delete-cart",
+            url: `${appUrl}/delete-cart`,
             headers: {
                 'Content-Type': 'application/json'
             },

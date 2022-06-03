@@ -7,16 +7,20 @@ import { getByPlaceholderText } from '@testing-library/react';
 
 const Products = () => {
 const productId = useParams();
-const { products, currentFiltered, product, redirect, setRedirect, cart, setCart, getCart} = useGlobalContext()
+const { appUrl, products, currentFiltered, product, redirect, setRedirect, cart, setCart, getCart} = useGlobalContext()
     const [singleProductId, setSingleProductId] = useState([])
 
   const navigate = useNavigate();
+
+
+  const localHost = 4000;
+  //  const productDetailsUrl = 'https://theindispensable.herokuapp.com/products/${productId.productId}
 
   // https://theindispensable.herokuapp.com/products/${productId.productId}
 
     // get products for product details page
         useEffect(()=> {
-            axios.get(`https://theindispensable.herokuapp.com/products/${productId.productId}`)
+            axios.get(`${appUrl}/products/${productId.productId}`)
            .then(res => {
              console.log(res)
            setSingleProductId([res.data.id])  
@@ -31,7 +35,7 @@ const { products, currentFiltered, product, redirect, setRedirect, cart, setCart
     const handleSubmit =  e => {
     e.preventDefault();
       let request = {method: 'POST',
-      url: "https://theindispensable.herokuapp.com/cart",
+      url: `${appUrl}/cart`,
       headers: {
           'Content-Type': 'application/json'
       },
