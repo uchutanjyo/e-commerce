@@ -33,6 +33,8 @@ exports.getCart = async (req, res, next) => {
 
     const cart = await req.user.getCart();
     const data = await cart.getProducts();
+    // const totalPrice = 
+    console.log(data.data, 'datata')
     res.json(data)
   } catch (error) {
     next(error);
@@ -58,6 +60,7 @@ exports.postCart = async (req, res, next) => {
       through: {
         quantity
       }
+      
     });
     res.json(newProduct);
   } catch (error) {

@@ -9,6 +9,12 @@ const Cart = sequelize.define('cart', {
     allowNull: false,
     primaryKey: true
   }
+
 });
 
 module.exports = Cart;
+
+  // totalPrice: {
+  //   type: Sequelize.INTEGER,
+  //   defaultValue: 0
+  // }

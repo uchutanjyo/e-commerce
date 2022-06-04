@@ -73,10 +73,13 @@ sequelize
     return user;
   })
 .then(user => {
+
    return user.createCart()
 
 })
   .then(cart => {
+    console.log(cart);
+    cart.dataValues.totalPrice = 0;
       app.listen(PORT == 'NaN' ? 4000 : PORT, () => {
         console.log(`App listening on port ${PORT}`);
       });

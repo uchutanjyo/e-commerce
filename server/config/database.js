@@ -9,8 +9,6 @@ const {
     DB_HOST
 } = process.env;
 
-console.log(process.env.PORT )
-
 console.log(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_DIALECT)
 
 
