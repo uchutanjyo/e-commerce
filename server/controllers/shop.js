@@ -34,7 +34,10 @@ exports.getCart = async (req, res, next) => {
     const cart = await req.user.getCart();
     const data = await cart.getProducts();
     // const totalPrice = 
-    console.log(data.data, 'datata')
+    const tp = data.map((product) => {
+      console.log(product)
+    })
+    console.log(data)
     res.json(data)
   } catch (error) {
     next(error);

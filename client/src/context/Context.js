@@ -10,6 +10,8 @@ const AppProvider = ({ children }) => {
   const [show, setShow] = useState(false);
 
   const [cart, setCart] = useState([]);
+  const [cartTotalPrice, setCartTotalPrice] = useState('0');
+
 
   const [deleted, setDeleted] = useState(false);
   const [redirect, setRedirect] = useState(false);
@@ -31,6 +33,20 @@ const AppProvider = ({ children }) => {
     const newCart = data.data;
     setCart(newCart);
     isLoading(false);
+    // feeling pride-having coded the folliwing 'totalPrice' solution from scratch(June 6, 2022)
+    const totalPrices = []
+   data.data.map((product) => {
+      const eachProduct = product.price * product.cartItem.quantity;
+      totalPrices.push(eachProduct)
+      console.log(totalPrices)
+    })
+      const totalPrice = totalPrices.reduce((acc, item) => {
+        return acc +=  item;
+   })
+  setCartTotalPrice(totalPrice)
+     console.log(cartTotalPrice)
+   m
+ 
     return cart.catch((error) => {
       console.log(error);
     });
@@ -113,6 +129,7 @@ const AppProvider = ({ children }) => {
           currentFiltered,
           setCurrentFiltered,
           appUrl,
+          cartTotalPrice
         }}
       >
         {" "}

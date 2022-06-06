@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const CartContents = ({ children }) => {
-  const { appUrl, cart, deleted, setDeleted } = useGlobalContext();
+  const {cartTotalPrice, appUrl, cart, deleted, setDeleted } = useGlobalContext();
   const [singleProductId, setSingleProductId] = useState([]);
 
   const navigate = useNavigate();
@@ -43,6 +43,7 @@ const CartContents = ({ children }) => {
       <div className="cart">
         <div className="your-cart">
           <h2> Your Cart</h2>
+          <h3>Total price: {cartTotalPrice}</h3>
         </div>
         {cart.map((item) => {
           const { id, cartItem, title, price, imageUrl } = item;
