@@ -45,7 +45,7 @@ const AppProvider = ({ children }) => {
    })
   setCartTotalPrice(totalPrice)
      console.log(cartTotalPrice)
-   m
+   
  
     return cart.catch((error) => {
       console.log(error);
