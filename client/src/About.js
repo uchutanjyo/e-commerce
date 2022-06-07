@@ -22,7 +22,8 @@ const About = () => {
         </div>
         <div className="mission">
           No matter your personal goals or interests, you will certainly find
-          what you are looking for at our online shop.
+          what you are looking for at our online shop. We're all about community, so if you
+          have an item you'd like to add to our shop, just let us know and we'll sell it free of charge!
         </div>
       </div>
     </div>

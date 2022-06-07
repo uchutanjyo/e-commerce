@@ -52,6 +52,7 @@ const CartContents = ({ children }) => {
               <div className="cart-item-left">
                 <h2>{title}</h2>
                 <h4>Quantity: {cartItem.quantity}</h4>
+                <h4>Price: ${price}.00</h4><br/><br/>
                 <button
                   id={id}
                   onClick={handleSubmit}
