@@ -43,7 +43,7 @@ const CartContents = ({ children }) => {
       <div className="cart">
         <div className="your-cart">
           <h2> Your Cart</h2>
-          <h3>Total price: {cartTotalPrice}</h3>
+          <h3>Total price: ${cartTotalPrice}.00</h3>
         </div>
         {cart.map((item) => {
           const { id, cartItem, title, price, imageUrl } = item;

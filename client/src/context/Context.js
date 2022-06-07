@@ -62,11 +62,19 @@ const AppProvider = ({ children }) => {
     getCart();
   }, [deleted]);
 
+  useEffect(() => {
+    console.log(cart, cartTotalPrice)
+    if (cart.length == 0) {
+      console.log(cartTotalPrice)
+      setCartTotalPrice('0')
+    }
+  }, [cart, cartTotalPrice]);
+
+
   const getProducts = async () => {
     isLoading(true);
     try {
       const data = await axios.get(`${appUrl}/products`);
-
       const newProducts = data.data;
       setProducts(newProducts);
       isLoading(false);
