@@ -613,13 +613,19 @@ p {
   }
 
   .Nav {
-    height: 1.5em;
+    height: 2em;
     max-width: 100vw;
+  }
+
+  #cart {
+    border: 1px dotted;
+    text-align: center;
   }
 
   .Nav a {
     margin-right: 2em;
     font-size: 1.2em;
+    width: 100%;
   }
 
   // home
@@ -774,40 +780,48 @@ p {
   .products-wrapper {
     @include flexCenter(column);
   }
+
+  .products-container {
+    width: 90%
+  }
   .products-title {
     margin: -1em;
     margin-bottom: -1em;
+    width: 50%
   }
 
   .categories-sidebar {
-    width: 100%;
+    @include flexCenter(row);
     height: 10%;
+    width: 85%;
     position: relative;
     margin-top: 5em;
-    justify-content: center;
     h2 {
-      margin-bottom: -0.2em;
-    }
+    font-size: 0;   }
     ul {
-      display: flex;
-      flex-direction: row;
+      @include flexCenter(row);
+      width: 85%;
+      margin-left: -1em;
+
       li {
-        margin-right: 1em;
+        margin-right: 1.2em;
+        font-size: 0.9em;
+
       }
     }
   }
 
   .products-title {
-    width: 95%;
+    width: 50%;
     margin-bottom: -6em;
   }
 
   .search-form {
-    width: 90%;
+    width: 100%;
     margin-right: 0em;
     margin-bottom: 1em;
     input {
-      width: 80%;
+     width: 10em;
     }
   }
 
