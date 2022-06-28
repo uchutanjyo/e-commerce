@@ -21,9 +21,8 @@ const FeaturedProducts = ({ children }) => {
   
   useEffect(() => {
     if (loadingFeaturedProduct) {
-      console.log(loadingFeaturedProduct)
       setFeaturedProduct(getRandomProduct(products));
-      // setLoadingFeaturedProduct(false);
+      setLoadingFeaturedProduct(false);
     }
   }, [products]);
 

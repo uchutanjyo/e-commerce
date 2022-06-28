@@ -139,7 +139,6 @@ p {
 .featured-product {
   @include flexCenter(column);
   max-height: 60%;
-  padding: 0.2em;
   margin: 0.1em;
   margin-left: 1em;
   width: 60%;
@@ -148,15 +147,13 @@ p {
   animation: fadein 1s;
   border-radius: 5%;
   img {
-    max-width: 97%;
+    max-width: 95%;
     max-height: 60%;
-    margin-bottom: 0.5em;
     animation: fadein 2s;
     border-radius: 8%;
-
+    margin-bottom: -.2em;
   }
 }
-
 
 .featured-products {
   @include flexCenter(row);
@@ -546,7 +543,7 @@ p {
   @include flexCenter(column);
   width: 50%;
   h4 {
-    margin-bottom: 0.2em;
+    margin-bottom: 0.6em;
   }
   button {
     font-family: "Chakra Petch", sans-serif;

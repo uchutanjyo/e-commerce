@@ -202,7 +202,6 @@ p {
       -ms-flex-direction: column;
           flex-direction: column;
   max-height: 60%;
-  padding: 0.2em;
   margin: 0.1em;
   margin-left: 1em;
   width: 60%;
@@ -214,12 +213,12 @@ p {
 }
 
 .featured-product img {
-  max-width: 97%;
+  max-width: 95%;
   max-height: 60%;
-  margin-bottom: 0.5em;
   -webkit-animation: fadein 2s;
           animation: fadein 2s;
   border-radius: 8%;
+  margin-bottom: -.2em;
 }
 
 .featured-products {
@@ -881,7 +880,7 @@ p {
 }
 
 .cart-item-left h4 {
-  margin-bottom: 0.2em;
+  margin-bottom: 0.6em;
 }
 
 .cart-item-left button {

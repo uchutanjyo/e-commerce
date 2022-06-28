@@ -33,7 +33,7 @@ const { cartTotalPrice } = useGlobalContext();
           </Link>
           <section className="cart-icons">
             <Link to="/Cart" className="Navbar-link" id="cart">
-              Cart: ${cartTotalPrice}
+              Cart: ${cartTotalPrice}.00
             </Link>
           </section>
         </nav>
