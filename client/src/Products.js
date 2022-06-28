@@ -24,7 +24,6 @@ const ProductDetails = () => {
           <ul>
             <li onClick={resetCategory}>All</li>
             {categories.map((cat) => {
-              console.log(cat)
               return <li key={cat} onClick={() => handleClick(cat)}>{cat}</li>;
             })}
           </ul>
