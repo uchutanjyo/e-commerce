@@ -8,6 +8,10 @@ const ProductDetails = () => {
 
   const categories = ["Kitchen", "Home Decor", "Books", "Music", "Other"];
 
+  const handleClick = (category) => {
+    setCategory(category);
+  };
+
   const resetCategory = () => {
     setCategory("");
   };
@@ -21,7 +25,7 @@ const ProductDetails = () => {
             <li onClick={resetCategory}>All</li>
             {categories.map((cat) => {
               console.log(cat)
-              return <li key={cat} onClick={setLoadingToTrue}>{cat}</li>;
+              return <li key={cat} onClick={() => handleClick(cat)}>{cat}</li>;
             })}
           </ul>
         </div>
