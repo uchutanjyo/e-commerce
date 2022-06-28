@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./styles/App.css";
 import Error from "./Error";
+import { useGlobalContext } from "./context/Context";
 
 // react router
 import { Link, BrowserRouter, Route, Routes } from "react-router-dom";
@@ -13,6 +14,7 @@ import Products from "./Products";
 import ProductDetailsPage from "./ProductDetailsPage";
 
 const App = () => {
+const { cartTotalPrice } = useGlobalContext();
   return (
     <>
       <BrowserRouter>
@@ -31,7 +33,7 @@ const App = () => {
           </Link>
           <section className="cart-icons">
             <Link to="/Cart" className="Navbar-link" id="cart">
-              Cart
+              Cart: ${cartTotalPrice}
             </Link>
           </section>
         </nav>

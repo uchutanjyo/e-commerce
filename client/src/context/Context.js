@@ -39,7 +39,6 @@ const AppProvider = ({ children }) => {
       const eachProduct = product.price * product.cartItem.quantity;
       totalPrices.push(eachProduct)
     })
-      console.log(totalPrices)
       const totalPrice = totalPrices.reduce((acc, item) => {
         return acc +=  item;
    })
