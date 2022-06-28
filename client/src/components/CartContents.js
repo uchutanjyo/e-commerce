@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useGlobalContext } from "../context/Context";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const CartContents = ({ children }) => {
-  const {cartTotalPrice, appUrl, cart, deleted, setDeleted } = useGlobalContext();
-  const [singleProductId, setSingleProductId] = useState([]);
-
+  const {isLoading, cartTotalPrice, appUrl, cart, deleted, setDeleted } = useGlobalContext();
+  
   const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target);
     const productId = e.target.id;
-    console.log(productId);
     let request = {
       method: "POST",
       url: `${appUrl}/delete-cart`,
@@ -34,10 +32,15 @@ const CartContents = ({ children }) => {
   useEffect(() => {
     if (deleted) {
       navigate("/cart");
+      
       setDeleted(false);
     }
   }, [cart]);
 
+  if (isLoading) {
+    return  <div className="cart">
+    <div className="your-cart"><h1>Loading...</h1></div></div>
+  }
   return (
     <>
       <div className="cart">
@@ -52,7 +55,7 @@ const CartContents = ({ children }) => {
               <div className="cart-item-left">
                 <h2>{title}</h2>
                 <h4>Quantity: {cartItem.quantity}</h4>
-                <h4>Price: ${price}.00</h4><br/><br/>
+                <h4>Price: ${price}.00</h4><br/><br/> 
                 <button
                   id={id}
                   onClick={handleSubmit}
@@ -60,10 +63,10 @@ const CartContents = ({ children }) => {
                 >
                   Remove
                 </button>
-              </div>{" "}
+              </div>
               <div className="cart-item-right">
                 <img src={imageUrl} />
-              </div>{" "}
+              </div>
             </div>
           );
         })}

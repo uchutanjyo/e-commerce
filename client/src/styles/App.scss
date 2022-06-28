@@ -132,16 +132,27 @@ p {
   color: rgb(243, 230, 230);
 }
 
-.right {
-  height: 70vh;
+.featured-product {
+  @include flexCenter(column);
+  max-height: 60%;
+  padding: 0.2em;
+  margin: 0.1em;
+  margin-left: 1em;
+  width: 60%;
+  background-color: rgba(13, 13, 13, 1);
+  font-style: normal;
+  animation: fadein 1s;
+  border-radius: 5%;
   img {
-    border-radius: 50%;
-    height: 90%;
-  }
-  img:hover {
-    opacity: 50%;
+    max-width: 97%;
+    max-height: 60%;
+    margin-bottom: 0.5em;
+    animation: fadein 2s;
+    border-radius: 8%;
+
   }
 }
+
 
 .featured-products {
   @include flexCenter(row);
@@ -150,6 +161,8 @@ p {
   height: 100%;
   background-color: rgb(252, 247, 247);
 }
+
+
 
 // Contact
 .contact {
@@ -357,10 +370,10 @@ p {
   min-height: 350px;
   padding: 0.2em;
   margin: 0.1em;
+  background-color: rgba(45, 81, 100, 0.8);
   border-radius: 1%;
   color: rgb(243, 230, 230);
   font-style: normal;
-  background-color: rgba(45, 81, 100, 0.8);
   animation: fadein 1s;
   img {
     max-width: 90%;
@@ -502,6 +515,7 @@ p {
   }
 }
 
+
 // Cart Page
 // Cart Contents component
 .cart {
@@ -565,11 +579,14 @@ p {
   .featured-products {
     height: 100vh;
     font-size: 1em;
+    
     h1 {
       font-size: 1.5em;
       margin-bottom: -1em;
     }
   }
+
+
 
   .left {
     margin-top: -5em;
@@ -650,6 +667,15 @@ p {
 
   .featured-products {
     flex-direction: column;
+
+  }
+
+  .featured-product {
+    margin-left: 4em;
+    background-color: transparent;
+    img {
+      width: 70%
+    }
   }
 
   #empty-right {

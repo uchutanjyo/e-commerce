@@ -3,14 +3,10 @@ import ProductsContainer from "./components/ProductsContainer";
 import { useGlobalContext } from "./context/Context";
 import SearchForm from "./components/SearchForm";
 
-const Products = () => {
-  const { currentFiltered, setCategory } = useGlobalContext();
+const ProductDetails = () => {
+  const { setLoadingToTrue, currentFiltered, setCategory } = useGlobalContext();
 
-  const categories = ["Kitchen", "Home Decor", "Books"];
-
-  const handleClick = (category) => {
-    setCategory(category);
-  };
+  const categories = ["Kitchen", "Home Decor", "Books", "Music", "Other"];
 
   const resetCategory = () => {
     setCategory("");
@@ -24,7 +20,8 @@ const Products = () => {
           <ul>
             <li onClick={resetCategory}>All</li>
             {categories.map((cat) => {
-              return <li onClick={() => handleClick(cat)}>{cat}</li>;
+              console.log(cat)
+              return <li key={cat} onClick={setLoadingToTrue}>{cat}</li>;
             })}
           </ul>
         </div>
@@ -38,4 +35,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default ProductDetails;

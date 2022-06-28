@@ -11,6 +11,7 @@ const Product = ({
   handleClick,
   children,
 }) => {
+
   return (
     <div key={id} className="product">
       <Link to={`/${id}/productdetailspage`}>

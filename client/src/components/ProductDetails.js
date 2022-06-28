@@ -12,6 +12,9 @@ const Products = () => {
     redirect,
     setRedirect,
     cart,
+    setIsLoading,
+    isLoading,
+    
   } = useGlobalContext();
   const [singleProductId, setSingleProductId] = useState([]);
 
@@ -24,10 +27,12 @@ const Products = () => {
     axios
       .get(`${appUrl}/products/${productId.productId}`)
       .then((res) => {
-        console.log(res);
+        console.log(isLoading)
         setSingleProductId([res.data.id]);
+        setIsLoading(false)
         return res;
       })
+  
       .catch((err) => {
         console.log(err);
       });
@@ -35,6 +40,7 @@ const Products = () => {
 
   // send post request to add item to cart, set redirect state to true.
   const handleSubmit = (e) => {
+    setIsLoading(true)
     e.preventDefault();
     let request = {
       method: "POST",
@@ -66,6 +72,12 @@ const Products = () => {
   const productDetails = currentFiltered.filter((product) => {
     return singleProductId == product.id;
   });
+
+  if (isLoading) {
+    return <div className="product-details-main">
+                  <div className="product-details">
+                  <div className="product-details-image"><h1>Loading...</h1></div></div></div>
+  }
   return (
     <>
       {productDetails.map((product) => {
@@ -84,7 +96,7 @@ const Products = () => {
               <h2>{`${title.substring(0, 100)}`.toUpperCase()}</h2>
               <div className="product-details-image">
                 <img src={medImageUrl} alt="description" />
-              </div>{" "}
+              </div>
             </div>
 
             <div className="product-details-right-sidebar">

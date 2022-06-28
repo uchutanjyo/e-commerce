@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context/Context";
 
 const FeaturedProducts = ({ children }) => {
-  const { currentFiltered, products, getProducts } = useGlobalContext();
+  const { isLoading, currentFiltered, products, getProducts } = useGlobalContext();
 
   const [featuredProduct, setFeaturedProduct] = useState("");
   const [loadingFeaturedProduct, setLoadingFeaturedProduct] = useState(false);
@@ -20,10 +20,18 @@ const FeaturedProducts = ({ children }) => {
   }, []);
   
   useEffect(() => {
-    console.log(loadingFeaturedProduct);
-    if (loadingFeaturedProduct) setFeaturedProduct(getRandomProduct(products));
+    if (loadingFeaturedProduct) {
+      console.log(loadingFeaturedProduct)
+      setFeaturedProduct(getRandomProduct(products));
+      // setLoadingFeaturedProduct(false);
+    }
   }, [products]);
 
+ 
+  if (isLoading) {
+    return  <div className="cart">
+       <div className="featured-products"><h1>Loading...</h1></div></div>
+  }
   return (
     <div className="featured-products">
       <div className="left">
@@ -37,13 +45,13 @@ const FeaturedProducts = ({ children }) => {
           <button className="default-button">See all products</button>{" "}
         </Link>
       </div>
+      
       <div className="right" id="featured-right">
-        <Link to={`/${featuredProduct.id}/productdetailspage`}>
-          <img src={featuredProduct.medImageUrl} />{" "}
-        </Link>
-
-        {/* <img src="https://images.unsplash.com/photo-1648285618065-3d421fa03e03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1NHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"></img> */}
-      </div>
+      <div className="featured-product">
+       <Link to={`/${featuredProduct.id}/productdetailspage`}>
+       <img src={featuredProduct.medImageUrl} />
+        </Link>  
+        </div></div>
     </div>
   );
 };

@@ -9,7 +9,6 @@ const Product = require('../models/product');
 exports.getProducts = async (req, res, next) => {
 try{
  const data = await Product.findAll();
- console.log('asdAfFFF')
  res.json(data);
 }
  catch (error) {
@@ -19,9 +18,7 @@ try{
 
 exports.getProduct = async (req, res, next) => {
   try {
-    console.log(req)
     const data = await Product.findByPk(req.params.productId);
-    console.log(data)
     res.json(data)
   } catch (error) {
     next(error);
@@ -33,11 +30,8 @@ exports.getCart = async (req, res, next) => {
 
     const cart = await req.user.getCart();
     const data = await cart.getProducts();
-    // const totalPrice = 
     const tp = data.map((product) => {
-      console.log(product)
     })
-    console.log(data)
     res.json(data)
   } catch (error) {
     next(error);
@@ -82,10 +76,8 @@ exports.postDeleteCartItem = async (req, res, next) => {
     const filteredProd = await products.filter((wantToDelete) => {
       return wantToDelete.dataValues.id == productId
     })
-    console.log('OK', filteredProd[0].cartItem)
     const result = await filteredProd[0].cartItem.destroy();
     // products[0].cartItem
-    console.log('result' , result)
     res.json(result);
   } catch (error) {
     next(error);
