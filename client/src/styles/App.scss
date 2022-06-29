@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  background-color: rgba(45, 81, 100, 1);
+  background-color: rgb(255, 255, 255); 
   font-family: "Roboto Condensed", sans-serif;
   @include flexCenter(column);
   overflow: auto;}
@@ -391,6 +391,8 @@ border: 1px dotted;
   }
   h4 {
     margin-bottom: -0.5em;
+    text-decoration: none; 
+    color: black;
   }
 }
 @keyframes fadein {
@@ -420,16 +422,18 @@ border: 1px dotted;
   position: fixed;
   left: 0;
   top: 0;
+  
   h2 {
     text-align: center;
     text-decoration: underline;
   }
   li {
-    color: rgb(39, 12, 88);
+    color: rgb(90, 89, 89);
     list-style-type: none;
     font-size: 1.3em;
     margin-bottom: 1em;
     cursor: pointer;
+    text-decoration: none; 
   }
   li:hover {
     text-decoration: underline;
@@ -573,6 +577,10 @@ border: 1px dotted;
 // Media queries
 // Smartphones
 @media screen and (max-height: 700px) {
+
+  body {
+  background-color: rgba(45, 81, 100, 1);
+}
   .main-top {
     background-color: rgba(45, 81, 100, 0.8);
     @include flexCenter(column);
@@ -627,6 +635,9 @@ display: none;  }
 }
 
 @media screen and (max-width: 1060px) {
+  body {
+    background-color: rgba(45, 81, 100, 1);
+  }
   .nav-title {
     display: none;
   }
@@ -826,6 +837,10 @@ justify-content: center;
     @include flexCenter(column);
   }
 
+  .product {
+    background-color: whitesmoke;
+  }
+
   .products-container {
     width: 90%
   }
@@ -841,16 +856,19 @@ justify-content: center;
     width: 85%;
     position: relative;
     margin-top: 5em;
+
     h2 {
     font-size: 0;   }
     ul {
       @include flexCenter(row);
       width: 85%;
       margin-left: -1em;
+      text-decoration: none;
 
       li {
         margin-right: 1.2em;
-        font-size: 0.9em;
+        font-size: 1em;
+        color: whitesmoke;
 
       }
     }
@@ -919,10 +937,25 @@ justify-content: center;
   }
 
   // Cart
+  .your-cart {
+    h2 {
+      color:rgb(243, 230, 230)
+    }
+    color: whitesmoke;
+    border: 1px dotted;
+    padding: 1em;
+  }
+
   .cart-item {
     width: 80vw;
+    color: whitesmoke;
+    border: 1px dotted;
     button {
       padding: 0.5em;
+    }
+    h2 {
+      color:rgb(243, 230, 230)
+
     }
   }
 

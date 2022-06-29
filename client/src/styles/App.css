@@ -5,7 +5,7 @@ html {
 }
 
 body {
-  background-color: #2d5164;
+  background-color: white;
   font-family: "Roboto Condensed", sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -614,6 +614,8 @@ p {
 
 .product h4 {
   margin-bottom: -0.5em;
+  text-decoration: none;
+  color: black;
 }
 
 @-webkit-keyframes fadein {
@@ -677,11 +679,12 @@ p {
 }
 
 .categories-sidebar li {
-  color: #270c58;
+  color: #5a5959;
   list-style-type: none;
   font-size: 1.3em;
   margin-bottom: 1em;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .categories-sidebar li:hover {
@@ -921,6 +924,9 @@ p {
 }
 
 @media screen and (max-height: 700px) {
+  body {
+    background-color: #2d5164;
+  }
   .main-top {
     background-color: rgba(45, 81, 100, 0.8);
     display: -webkit-box;
@@ -978,6 +984,9 @@ p {
 }
 
 @media screen and (max-width: 1060px) {
+  body {
+    background-color: #2d5164;
+  }
   .nav-title {
     display: none;
   }
@@ -1216,6 +1225,9 @@ p {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+  .product {
+    background-color: whitesmoke;
+  }
   .products-container {
     width: 90%;
   }
@@ -1262,10 +1274,12 @@ p {
             flex-direction: row;
     width: 85%;
     margin-left: -1em;
+    text-decoration: none;
   }
   .categories-sidebar ul li {
     margin-right: 1.2em;
-    font-size: 0.9em;
+    font-size: 1em;
+    color: whitesmoke;
   }
   .products-title {
     width: 50%;
@@ -1340,11 +1354,24 @@ p {
   .product-details-right-sidebar button {
     margin-top: -0.2em;
   }
+  .your-cart {
+    color: whitesmoke;
+    border: 1px dotted;
+    padding: 1em;
+  }
+  .your-cart h2 {
+    color: #f3e6e6;
+  }
   .cart-item {
     width: 80vw;
+    color: whitesmoke;
+    border: 1px dotted;
   }
   .cart-item button {
     padding: 0.5em;
+  }
+  .cart-item h2 {
+    color: #f3e6e6;
   }
   .cart-item-left h4 {
     margin-bottom: 1em;
