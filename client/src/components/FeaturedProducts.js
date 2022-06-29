@@ -34,7 +34,7 @@ const FeaturedProducts = ({ children }) => {
   return (
     <div className="featured-products">
       <div className="left">
-        <h1>Today's featured products</h1>
+        <h1>Today's featured product</h1>
         <p>
           Check out our featured product of the day (subject to change on page
           refresh). We would appreciate it very much if you bought one or more

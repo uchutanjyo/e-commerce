@@ -33,7 +33,7 @@ const AppProvider = ({ children }) => {
     const newCart = data.data;
     setCart(newCart);
     setIsLoading(false);
-    // feeling pride-having coded the following 'totalPrice' solution from scratch (June 6, 2022)
+    // feeling proud-having coded the following 'totalPrice' solution from scratch (June 6, 2022)
     const totalPrices = []
    data.data.map((product) => {
       const eachProduct = product.price * product.cartItem.quantity;
@@ -138,7 +138,6 @@ const AppProvider = ({ children }) => {
           cartTotalPrice
         }}
       >
-        {" "}
         {children}
       </AppContext.Provider>
     </>

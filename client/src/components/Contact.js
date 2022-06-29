@@ -60,7 +60,7 @@ const ContactForm = ({ children }) => {
                 className="form-input"
               />
             </section>
-            <button action="submit" onClick={handleSubmit}>
+            <button className="default-button" action="submit" onClick={handleSubmit}>
               Submit
             </button>
           </form>
