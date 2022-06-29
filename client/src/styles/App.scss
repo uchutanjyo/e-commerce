@@ -596,6 +596,7 @@ border: 1px dotted;
 
   .left {  
     padding-top: 1em;
+    margin-top: 5em;
 
     button {
       margin-bottom: 1em;
@@ -604,7 +605,7 @@ border: 1px dotted;
 
   .main-center {
     margin-top: 4em;
-      height: 125vh;
+      height: 130%;
 
   }
 
@@ -703,7 +704,7 @@ justify-content: center;
 }
   .featured-products {
     flex-direction: column;
-
+    
   }
 
   .featured-product {
@@ -732,7 +733,7 @@ justify-content: center;
  
   .contact {
     width: 90vw;
-    height: 80vh;
+    height: 110%;
     background-color: rgba(45, 81, 100, 1);
     border: 1px dotted;
 
