@@ -3,7 +3,7 @@ import ProductsContainer from "./components/ProductsContainer";
 import { useGlobalContext } from "./context/Context";
 import SearchForm from "./components/SearchForm";
 
-const ProductDetails = () => {
+const Products = () => {
   const { setLoadingToTrue, currentFiltered, setCategory } = useGlobalContext();
 
   const categories = ["Kitchen", "Home Decor", "Books", "Music", "Other"];
@@ -38,4 +38,4 @@ const ProductDetails = () => {
   );
 };
 
-export default ProductDetails;
+export default Products;

@@ -6,9 +6,11 @@ const ProductsContainer = ({ children }) => {
   const { setLoadingToTrue, isLoading, setIsLoading, currentFiltered } =
     useGlobalContext();
 
+ // while loading data, display Loading..
   if (isLoading) {
     return <div className="products"><h1>Loading...</h1></div>;
   }
+  // render mapped currentFiltered array to display each product in a Product component
   return (
     <>
       <div className="products">

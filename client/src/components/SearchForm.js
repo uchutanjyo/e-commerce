@@ -1,20 +1,23 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useGlobalContext } from "../context/Context";
 
 const SearchForm = () => {
   const { setSearchTerm } = useGlobalContext();
 
+  // sets up reference with variable searchValue - initial state is an empty string
   const searchValue = useRef("");
-  // sets up reference with name searchValue . initial state is an empty array
 
+  // function sets searchTerm state (in Context.js) with the current searchValue (input below)
   const searchProduct = () => {
     setSearchTerm(searchValue.current.value.toLowerCase());
   };
 
-  React.useEffect(() => {
+  // on page render, focus on the search input
+  useEffect(() => {
     searchValue.current.focus();
   }, []);
 
+  // render search form - searchValue referenced in input. When input value changes, call searchProduct to update state with current ref'd value.
   return (
     <div className="search-form">
       <form action="input">

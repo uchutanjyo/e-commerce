@@ -46,7 +46,7 @@ const CartContents = ({ children }) => {
     return  <div className="cart">
     <div className="your-cart"><h1>Loading...</h1></div></div>
   }
-  // return cart: total price, map each cart item including title, price, qty, image, and delete button (handleSubmit)
+  // render cart: total price, map each cart item including title, price, qty, image, and delete button (handleSubmit)
   return (
     <>
       <div className="cart">
@@ -57,7 +57,7 @@ const CartContents = ({ children }) => {
         {cart.map((item) => {
           const { id, cartItem, title, price, imageUrl } = item;
           return (
-            <div className="cart-item">
+            <div key={id} className="cart-item">
               <div className="cart-item-left">
                 <h2>{title}</h2>
                 <h4>Quantity: {cartItem.quantity}</h4>

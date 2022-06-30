@@ -1,7 +1,9 @@
 import React from "react";
 import bgsmall from "../styles/bgsmall.jpg";
 
+// this component wasn't really needed. I may refactor the code and get rid of it.
 const TopHeader = ({ children }) => {
+  // render TopHeader component
   return (
     <div className="top-header">
       <div className="left">

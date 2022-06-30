@@ -50,7 +50,10 @@ const { cartTotalPrice } = useGlobalContext();
             path=":productId/productdetailspage"
             element={<ProductDetailsPage />}
           ></Route>
-   
+          <Route
+            path=":productId/productdetailspage"
+            element={<ProductDetailsPage />}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </>

@@ -1,4 +1,44 @@
-import React, { useState, useRef, useEffect } from "react";
+  const getCart = 
+  async () => {
+    try {
+    setIsLoading(true);
+    const data = await axios.get(`${appUrl}/cart`);
+    const newCart = data.data;
+    setCart(newCart);
+    setIsLoading(false);
+
+    // feeling proud-having coded the following 'totalPrice' solution from scratch (June 6, 2022)
+    const totalPrices = []
+   /* maps cart product property from each data object
+      sets eachProduct to the price of each cart product * the qty of each product in the cart
+      pushes eachProduct to empty totalPrices array
+    */
+    data.data.map((product) => {
+    const eachProduct = product.price * product.cartItem.quantity;
+    totalPrices.push(eachProduct)
+    })
+    // reduce totalPrices array to sum totalPrice
+      const totalPrice = totalPrices.reduce((acc, item) => {
+        return acc +=  item;
+   })
+    // set cartTotalPrice state to return value of totalPrice
+  setCartTotalPrice(totalPrice)
+    return cart
+  }
+
+    catch (error)  {
+      console.log(error);
+    };
+  };
+
+
+
+
+
+
+
+
+  import React, { useState, useRef, useEffect } from "react";
 import { useGlobalContext } from "../context/Context";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
@@ -23,21 +63,20 @@ const ProductDetails = () => {
 
   const localHost = 4000;
 
-  // makes axios GEt request to fetch product for product details page, using productId pulled from router url (useParams)
+  // on page render, make axios GET request to fetch product for product details page, using productId pulled from router url (useParams)
   useEffect(() => {
     axios
       .get(`${appUrl}/products/${productId.productId}`)
       .then((res) => {
-  // set singleProductId state to the data.id property from the axios response
+  // set singleProductId state to the data.id property from the axios response; set isLoading to false
         setSingleProductId([res.data.id]);
         setIsLoading(false)
         return res;
       })
-  
       .catch((err) => {
         console.log(err);
       });
-  }, [productId.id]);
+  }, []);
 
   // send singleProductId POST request to cart route to add item to cart, set redirect state to true.
   const handleSubmit = (e) => {
@@ -53,7 +92,6 @@ const ProductDetails = () => {
         productId: singleProductId[0],
       },
     };
-
     axios(request)
       .then((res) => {
         setRedirect(true);
@@ -64,15 +102,15 @@ const ProductDetails = () => {
 
   // redirect to Cart page when redirect boolean set to true; redirect then reset to false
   useEffect(() => {
-    if (redirect && cart != []) {
+    if (redirect) {
       navigate("/cart");
       setRedirect(false);
     }
   }, [redirect]);
 
-    // filters currentFiltered array, returns product id that is equal to singleProductId (to map to ProductDetails component)
+  // filters currentFiltered array, returns product id that is equal to singleProductId (to map to ProductDetails component)
   const productDetails = currentFiltered.filter((product) => {
-    return singleProductId == product.id;
+    return singleProductId === product.id;
   });
 
   // while loading data, display Loading..
@@ -102,12 +140,9 @@ const ProductDetails = () => {
                 <img src={medImageUrl} alt="description" />
               </div>
             </div>
-
             <div className="product-details-right-sidebar">
               <h2>Price: ${price}</h2>
-
               <p>{description}</p>
-
               <button onClick={handleSubmit}>Add to cart</button>
             </div>
           </div>

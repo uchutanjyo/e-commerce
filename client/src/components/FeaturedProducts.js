@@ -28,7 +28,7 @@ const FeaturedProducts = ({ children }) => {
     return  <div className="cart">
        <div className="featured-products"><h1>Loading...</h1></div></div>
   }
-  // return featured products section - product of the day links to that product's details page
+  // render featured products section - product of the day links to that product's details page
   return (
     <div className="featured-products">
       <div className="left">

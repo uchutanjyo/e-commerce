@@ -27,27 +27,42 @@ const AppProvider = ({ children }) => {
 
   const cartUrl = "https://theindispensable.herokuapp.com/cart";
 
-  const getCart = async () => {
-    setIsLoading(true);
-    const data = await axios.get(`${appUrl}/cart`);
-    const newCart = data.data;
-    setCart(newCart);
-    setIsLoading(false);
-    // feeling proud-having coded the following 'totalPrice' solution from scratch (June 6, 2022)
-    const totalPrices = []
-   data.data.map((product) => {
-      const eachProduct = product.price * product.cartItem.quantity;
-      totalPrices.push(eachProduct)
-    })
-      const totalPrice = totalPrices.reduce((acc, item) => {
-        return acc +=  item;
-   })
-  setCartTotalPrice(totalPrice)
-    return cart
-    .catch((error) => {
-      console.log(error);
-    });
-  };
+  /* function sets isLoading state to true, makes axios GET request to cart route, stores in data variable
+      sets newCart to data property of axios response
+      sets cart state to newCart, sets isLoading to false
+  */
+      const getCart = 
+      async () => {
+        try {
+        setIsLoading(true);
+        const data = await axios.get(`${appUrl}/cart`);
+        const newCart = data.data;
+        setCart(newCart);
+        setIsLoading(false);
+    
+        // feeling proud-having coded the following 'totalPrice' solution from scratch (June 6, 2022)
+        const totalPrices = []
+       /* maps cart product property from each data object
+          sets eachProduct to the price of each cart product * the qty of each product in the cart
+          pushes eachProduct to empty totalPrices array
+        */
+        data.data.map((product) => {
+        const eachProduct = product.price * product.cartItem.quantity;
+        totalPrices.push(eachProduct)
+        })
+        // reduce totalPrices array to sum totalPrice
+          const totalPrice = totalPrices.reduce((acc, item) => {
+            return acc +=  item;
+       })
+        // set cartTotalPrice state to return value of totalPrice
+      setCartTotalPrice(totalPrice)
+        return cart
+      }
+    
+        catch (error)  {
+          console.log(error);
+        };
+      };
 
   useEffect(() => {
     if (cart != []) {

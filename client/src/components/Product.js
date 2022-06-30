@@ -13,7 +13,7 @@ const Product = ({
   children,
 }) => {
 
-  // return Product component - title is changed to upper case to ___
+  // render Product component - title is changed to upper case to ___
   return (
     <div key={id} className="product">
       <Link to={`/${id}/productdetailspage`}>
