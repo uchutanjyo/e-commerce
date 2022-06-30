@@ -2,10 +2,11 @@ import React, { useState, useRef, useEffect } from "react";
 import { useGlobalContext } from "../context/Context";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import { getByPlaceholderText } from "@testing-library/react";
 
 const Products = () => {
+  // useParams connects productId to ProductDetailsPage - pulls unique id from url
   const productId = useParams();
+
   const {
     appUrl,
     currentFiltered,
@@ -14,8 +15,8 @@ const Products = () => {
     cart,
     setIsLoading,
     isLoading,
-    
   } = useGlobalContext();
+
   const [singleProductId, setSingleProductId] = useState([]);
 
   const navigate = useNavigate();

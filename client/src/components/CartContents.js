@@ -5,12 +5,15 @@ import axios from "axios";
 
 const CartContents = ({ children }) => {
   const {isLoading, cartTotalPrice, appUrl, cart, deleted, setDeleted } = useGlobalContext();
-  
+
   const navigate = useNavigate();
 
+  // delete cart item
   const handleSubmit = (e) => {
     e.preventDefault();
+    // gets id from clicked cart item delete button
     const productId = e.target.id;
+    // sends productId as axios POST request to delete-cart route
     let request = {
       method: "POST",
       url: `${appUrl}/delete-cart`,
@@ -23,6 +26,7 @@ const CartContents = ({ children }) => {
     };
     axios(request)
       .then((res) => {
+      // sets deleted boolean to true, returns response
         setDeleted(true);
         return res;
       })
@@ -30,17 +34,19 @@ const CartContents = ({ children }) => {
   };
 
   useEffect(() => {
+    // when deleted set to true, navigate back to cart. Set deleted to false.
     if (deleted) {
       navigate("/cart");
-      
       setDeleted(false);
     }
-  }, [cart]);
+  }, [deleted]);
 
   if (isLoading) {
+    // while loading data, display Loading..
     return  <div className="cart">
     <div className="your-cart"><h1>Loading...</h1></div></div>
   }
+  // return cart: total price, map each cart item including title, price, qty, image, and delete button (handleSubmit)
   return (
     <>
       <div className="cart">

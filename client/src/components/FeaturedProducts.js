@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context/Context";
 
@@ -7,30 +6,29 @@ const FeaturedProducts = ({ children }) => {
   const { isLoading, currentFiltered, products, getProducts } = useGlobalContext();
 
   const [featuredProduct, setFeaturedProduct] = useState("");
-  const [loadingFeaturedProduct, setLoadingFeaturedProduct] = useState(false);
 
+  // gets random product out of products array (fetched in Context.js)
   const getRandomProduct = (products) => {
     let randomProduct = products[Math.floor(Math.random() * products.length)];
     return randomProduct;
   };
 
+  // on page render, getProducts (fetched in Context.js)
   useEffect(() => {
     getProducts();
-    setLoadingFeaturedProduct(true);
   }, []);
   
+  // when getProducts() called initially, set featured product state to return value of getRandomProduct
   useEffect(() => {
-    if (loadingFeaturedProduct) {
-      setFeaturedProduct(getRandomProduct(products));
-      setLoadingFeaturedProduct(false);
-    }
+      setFeaturedProduct(getRandomProduct(products));    
   }, [products]);
 
- 
+  // while loading data, display Loading..
   if (isLoading) {
     return  <div className="cart">
        <div className="featured-products"><h1>Loading...</h1></div></div>
   }
+  // return featured products section - product of the day links to that product's details page
   return (
     <div className="featured-products">
       <div className="left">
