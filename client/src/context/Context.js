@@ -40,47 +40,48 @@ const AppProvider = ({ children }) => {
         setCart(newCart);
         setIsLoading(false);
     
-        // feeling proud-having coded the following 'totalPrice' solution from scratch (June 6, 2022)
+        // feeling proud-having coded the following 'totalPrice' solution from scratch w/o reference to anything (June 6, 2022)
         const totalPrices = []
        /* maps cart product property from each data object
           sets eachProduct to the price of each cart product * the qty of each product in the cart
           pushes eachProduct to empty totalPrices array
         */
+       
         data.data.map((product) => {
         const eachProduct = product.price * product.cartItem.quantity;
         totalPrices.push(eachProduct)
         })
         // reduce totalPrices array to sum totalPrice
-          const totalPrice = totalPrices.reduce((acc, item) => {
-            return acc +=  item;
-       })
+    
+            const totalPrice = totalPrices.reduce((acc, item) => {
+            return acc +=  item }, []
+       )
         // set cartTotalPrice state to return value of totalPrice
-      setCartTotalPrice(totalPrice)
+      setCartTotalPrice(totalPrice) 
+
         return cart
       }
-    
         catch (error)  {
           console.log(error);
         };
       };
 
+  // when redirect or deleted set to true in ProductDetails, call getCart() in order to display cart on redirect/refresh cart contents
   useEffect(() => {
-    if (cart != []) {
       getCart();
-    }
-  }, [redirect]);
+  }, [redirect, deleted]);
 
+  // when cart or cartTotalPrice state change, and IF cart.length is 0 (no items), set cartTotalPrice to 0.
   useEffect(() => {
-    getCart();
-  }, [deleted]);
-
-  useEffect(() => {
-    if (cart.length == 0) {
+    if (cart.length === 0) {
       setCartTotalPrice('0')
     }
   }, [cart, cartTotalPrice]);
 
-
+/* function sets isLoading state to true, makes axios GET request to products route, stores in data variable
+      sets newProducts variable to data property of axios response
+      sets products state to newProducts, sets isLoading to false
+  */
   const getProducts = async () => {
     setIsLoading(true);
     try {
@@ -93,11 +94,15 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  // on initial page render, call getProducts() to display all products
   useEffect(() => {
     getProducts();
   }, []);
 
-    // really bad workaround for an issue i was having. in order to make product search case-insensitive, i  mapped products array (state) to a new array, and converted the title property to lowercase.this new array is then filtered - a check is done against the searchTerm (what is typed in the search box) which is also converted to lowercase. the title of each product is then converted to uppercase later on rendering.
+  /* A bad workaround for an issue i was having
+  Whenever products, category or searchTerm state changes, in order to make product search case-insensitive, products array is mapped to a new array, and title is converted to lowercase
+  This new array is then filtered, and a check is done against the searchTerm (what is typed in the search input) which is also converted to lowercase. The title of each product is then converted to uppercase later on page render.
+  */
   useEffect(() => {
     let filtered = products
       .map((item) => {
@@ -105,14 +110,12 @@ const AppProvider = ({ children }) => {
         return { ...item, title: title.toLowerCase() };
       })
       .filter((product) => {
-        if (category != "") {
+        if (category !== "") {
           return product.category === category;
         } else return product;
-        {
-        }
       })
       .filter((searchedProduct) => {
-        if (searchTerm != "") {
+        if (searchTerm !== "") {
           return searchedProduct.title.includes(searchTerm.toLowerCase());
         } else {
           return searchedProduct;
@@ -121,6 +124,7 @@ const AppProvider = ({ children }) => {
     setCurrentFiltered(filtered);
   }, [products, category, searchTerm])
 
+  // function which sets isLoading state to true, which is shared across several components in order to render 'Loading..' while data is being fetched
   const setLoadingToTrue = () => {
     setIsLoading(true)
   }

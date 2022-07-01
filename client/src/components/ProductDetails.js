@@ -64,7 +64,7 @@ const ProductDetails = () => {
 
   // redirect to Cart page when redirect boolean set to true; redirect then reset to false
   useEffect(() => {
-    if (redirect && cart != []) {
+    if (redirect && cart !== []) {
       navigate("/cart");
       setRedirect(false);
     }
@@ -95,7 +95,7 @@ const ProductDetails = () => {
           category,
         } = product;
         return (
-          <div className="product-details-main">
+          <div key={id} className="product-details-main">
             <div className="product-details">
               <h2>{`${title.substring(0, 100)}`.toUpperCase()}</h2>
               <div className="product-details-image">
