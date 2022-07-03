@@ -1033,16 +1033,7 @@ p {
     margin-top: 1em;
   }
   .left button {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    height: 1em;
-    font-size: 1em;
-    margin-top: 1em;
-    padding: 1.3em;
+    display: none;
   }
   .left p {
     padding: 2em;
