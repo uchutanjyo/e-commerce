@@ -3,6 +3,9 @@ import ProductDetails from "./components/ProductDetails";
 import { Link } from "react-router-dom";
 
 const ProductsDetailsPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);  }, []);
+
   return (
     <>
       <div className="details-wrapper">

@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TopHeader from "./components/TopHeader";
 import FeaturedProducts from "./components/FeaturedProducts";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);  }, []);
+
   return (
     <>
       <div className="main-top">

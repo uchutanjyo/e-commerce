@@ -58,7 +58,6 @@ const AppProvider = ({ children }) => {
        )
         // set cartTotalPrice state to return value of totalPrice
       setCartTotalPrice(totalPrice) 
-
         return cart
       }
         catch (error)  {
