@@ -79,6 +79,7 @@ My plans for the future of this application include implementing all of the abov
 
 <a name="credits"></a>
 <b>Credits</b>
+
 I would like to thank the instructors of two excellent Udemy courses which served as the foundation for the knowledge I have applied in this application:
 
 John Smilga: React Tutorial and Projects Course (2022)
