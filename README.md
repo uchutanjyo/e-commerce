@@ -10,7 +10,7 @@
 - [Credits](#credits)
 - [License](#license)
 
-
+<br><br>
 <a name="description"></a>
 ##Description
 
@@ -26,12 +26,12 @@ The essential functionality of this application is:
 3. The user is then redirected to their shopping cart, which shows the current cart items, total quantity of each cart item, and the total cart price. From here, the user can delete cart items (again, this utilizes POST requests).
 
 4. Other functionality includes the 'Product of the Day' section on the home page, which randomly selects a product from the database and displays it on the page, providing a link to the Product Details page for that product. This is not actually a true 'product of the day', as it will change on page refresh.
-
+<br><br>
 <a name="installation"></a>
 ##Installation
 
 This information will be provided soon enough.
-
+<br><br>
 <a name="motivation"></a>
 ##Motivation
 
@@ -42,7 +42,7 @@ My motivation for building this project was threefold:
 
 3. I wanted to practise and apply my knowledge of React (functional components, hooks, Router, Context API) in a new, original project.
 
-
+<br><br>
 <a name="whatilearned"></a>
 ##What I Learned
 
@@ -59,7 +59,7 @@ However, the greatest challenge was the deployment of the back-end and database.
 The experience of deploying a full-stack application was invaluable; I will have confidence the next time I am required to do something similar.
 
 The big takeaway/lesson learned from this challenging project was this: persistence is the key. No matter how tough or impossible the problem you're currently dealing with may seem, there IS a solution - you just need to keep going, keep trying. Of course, I've known this since the beginning, but this project *really* required a lot of patience and grit compared to most of the others I'd built up until this point.
-
+<br><br>
 <a name="futureplans"></a>
 ##Future Implementation Plans
 Of course, this project is not a *true* e-commerce site yet - it is a fake one. It is missing some key functionality such as:
@@ -70,7 +70,7 @@ Of course, this project is not a *true* e-commerce site yet - it is a fake one. 
 5. Fix up/make more beautiful certain aspects of the UI design
 
 My plans for the future of this application include implementing all of the above. When all of this is ready, I could actually use this web application for my own uses (if I have things I really want to sell, or to start my own online business). I could also potentially use it as a template to sell to clients looking for their own e-commerce store.
-
+<br><br>
 <a name="credits"></a>
 ##Credits
 I would like to thank the instructors of two excellent Udemy courses which served as the foundation for the knowledge I have applied in this application:
@@ -81,7 +81,7 @@ https://www.udemy.com/course/react-tutorial-and-projects-course/
 Maximillian Schwarzmüller: NodeJS - The Complete Guide (MVC, REST APIs, GraphQL, Deno
 (https://www.udemy.com/course/nodejs-the-complete-guide/)
 
-
+<br><br>
 <a name="license"></a>
 ##License
 
