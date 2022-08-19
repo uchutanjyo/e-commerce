@@ -12,7 +12,7 @@
 
 <br><br>
 <a name="description"></a>
-##Description
+Description
 
 This is my first full-stack web application built from scratch and remains my most 'ambitious' project to date. Essentially, it is a (currently) fake e-commerce store which sells 'indispensable' items (really they are just random objects around me in my apartment).
 
@@ -27,13 +27,15 @@ The essential functionality of this application is:
 
 4. Other functionality includes the 'Product of the Day' section on the home page, which randomly selects a product from the database and displays it on the page, providing a link to the Product Details page for that product. This is not actually a true 'product of the day', as it will change on page refresh.
 <br><br>
+
 <a name="installation"></a>
-##Installation
+Installation
 
 This information will be provided soon enough.
 <br><br>
+
 <a name="motivation"></a>
-##Motivation
+Motivation
 
 My motivation for building this project was threefold:
 1. I lacked experience in anything e-commerce related. As it it one of the most sought-after uses for web development (everyone needs to sell their stuff online), I did not want e-commerce to be a total gap in my experience/knowledge.
@@ -44,7 +46,7 @@ My motivation for building this project was threefold:
 
 <br><br>
 <a name="whatilearned"></a>
-##What I Learned
+What I Learned
 
 This project has probably been *the* project which has taught me the most about software development overall - I was required to go beyond Javascript and React fundamentals, to the challenges of building and deploying a full-fledged, full-stack web application. 
 
@@ -60,8 +62,9 @@ The experience of deploying a full-stack application was invaluable; I will have
 
 The big takeaway/lesson learned from this challenging project was this: persistence is the key. No matter how tough or impossible the problem you're currently dealing with may seem, there IS a solution - you just need to keep going, keep trying. Of course, I've known this since the beginning, but this project *really* required a lot of patience and grit compared to most of the others I'd built up until this point.
 <br><br>
+
 <a name="futureplans"></a>
-##Future Implementation Plans
+Future Implementation Plans
 Of course, this project is not a *true* e-commerce site yet - it is a fake one. It is missing some key functionality such as:
 1. User sign up/authentication
 2. Unique shopping carts for each user
@@ -71,8 +74,9 @@ Of course, this project is not a *true* e-commerce site yet - it is a fake one. 
 
 My plans for the future of this application include implementing all of the above. When all of this is ready, I could actually use this web application for my own uses (if I have things I really want to sell, or to start my own online business). I could also potentially use it as a template to sell to clients looking for their own e-commerce store.
 <br><br>
+
 <a name="credits"></a>
-##Credits
+Credits
 I would like to thank the instructors of two excellent Udemy courses which served as the foundation for the knowledge I have applied in this application:
 
 John Smilga: React Tutorial and Projects Course (2022)
@@ -83,7 +87,7 @@ Maximillian Schwarzmüller: NodeJS - The Complete Guide (MVC, REST APIs, GraphQL
 
 <br><br>
 <a name="license"></a>
-##License
+License
 
 MIT License
 
