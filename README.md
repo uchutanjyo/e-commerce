@@ -1,6 +1,6 @@
-["The Indispensable" E-Commerce Application]
+<b>["The Indispensable" E-Commerce Application]</b>
 
-[Table of Contents]
+<b>[Table of Contents]</b>
 
 - [Description](#description)
 - [Installation](#installation)
@@ -12,7 +12,7 @@
 
 <br><br>
 <a name="description"></a>
-Description
+<b>Description</b>
 
 This is my first full-stack web application built from scratch and remains my most 'ambitious' project to date. Essentially, it is a (currently) fake e-commerce store which sells 'indispensable' items (really they are just random objects around me in my apartment).
 
@@ -29,13 +29,13 @@ The essential functionality of this application is:
 <br><br>
 
 <a name="installation"></a>
-Installation
+<b>Installation</b>
 
 This information will be provided soon enough.
 <br><br>
 
 <a name="motivation"></a>
-Motivation
+<b>Motivation</b>
 
 My motivation for building this project was threefold:
 1. I lacked experience in anything e-commerce related. As it it one of the most sought-after uses for web development (everyone needs to sell their stuff online), I did not want e-commerce to be a total gap in my experience/knowledge.
@@ -46,7 +46,7 @@ My motivation for building this project was threefold:
 
 <br><br>
 <a name="whatilearned"></a>
-What I Learned
+<b>What I Learned</b>
 
 This project has probably been *the* project which has taught me the most about software development overall - I was required to go beyond Javascript and React fundamentals, to the challenges of building and deploying a full-fledged, full-stack web application. 
 
@@ -64,7 +64,7 @@ The big takeaway/lesson learned from this challenging project was this: persiste
 <br><br>
 
 <a name="futureplans"></a>
-Future Implementation Plans
+<b>Future Implementation Plans</b>
 Of course, this project is not a *true* e-commerce site yet - it is a fake one. It is missing some key functionality such as:
 1. User sign up/authentication
 2. Unique shopping carts for each user
@@ -76,7 +76,7 @@ My plans for the future of this application include implementing all of the abov
 <br><br>
 
 <a name="credits"></a>
-Credits
+<b>Credits</b>
 I would like to thank the instructors of two excellent Udemy courses which served as the foundation for the knowledge I have applied in this application:
 
 John Smilga: React Tutorial and Projects Course (2022)
@@ -87,7 +87,7 @@ Maximillian Schwarzmüller: NodeJS - The Complete Guide (MVC, REST APIs, GraphQL
 
 <br><br>
 <a name="license"></a>
-License
+<b>License</b>
 
 MIT License
 
