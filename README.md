@@ -1,6 +1,6 @@
 <b>["The Indispensable" E-Commerce Application]</b>
-
-<b>[Table of Contents]</b>
+<br><br>
+<b>Table of Contents</b>
 
 - [Description](#description)
 - [Installation](#installation)
