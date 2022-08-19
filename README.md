@@ -52,7 +52,15 @@ This project has probably been *the* project which has taught me the most about 
 
 Nearly every step of the way, I was faced with some kind of major challenge which required a substantial amount of research, trial-and-error and debugging. Some of the biggest challenges that come to mind are:
 
-1. In multiple instances where state was used throughout the application, I ran into issues where state would not update immediately 
+
+1. In multiple instances where state was used throughout the application, I ran into issues where state would not update immediately to the effect that updates were displayed on the page without refreshing. Through research and trial & error, I discovered different ways of achieving this crucial functionality.
+
+2. The multitude of challenges faced when trying to make the front-end talk to the back-end; the proper implementation of HTTP requests - requesting and sending back data in appropriate ways.
+
+3. Implementing a smoothly functioning product search/filter for the Products page.
+
+4. Many, many more which I will add here when I remember them.
+
 
 Aside from writing the code for this application, properly deploying it was a whole other challenge. I ran into numerous issues while trying to deploy all three components of the app - the front end with Netlify, and the back end & database with Heroku. The issues with Netlify were mainly related to the build script, which I did have to change a couple of times during the deployment process. 
 
@@ -68,6 +76,7 @@ The big takeaway/lesson learned from this challenging project was this: persiste
 
 
 Of course, this project is not a *true* e-commerce site yet - it is a fake one. It is missing some key functionality such as:
+
 1. User sign up/authentication
 2. Unique shopping carts for each user
 3. Option to add/delete quantity of specific cart items
